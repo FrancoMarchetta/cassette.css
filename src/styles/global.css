@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: 'Courier New', Courier, monospace;
+  --color-cream: #F5F5DC;
+}
+
+body{
+    background-color: #252525;
+}
