@@ -13,6 +13,7 @@ import "../styles/dialog.css";
 import "../styles/badges.css";
 import "../styles/text-area.css";
 import "../styles/radio-buttons.css";
+import "../styles/component-group.css";
 ---
 
 <Layout>
@@ -21,235 +22,235 @@ import "../styles/radio-buttons.css";
   </div>
 
   <div class="page-content max-w-6xl mx-auto px-4">
-<!-- Buttons -->
-<div class="mech-demo-container">
-  <div class="section-title">Buttons</div>
-  <div class="buttons-container justify-center">
-    <button class="keycap keycap-cream">ESC</button>
+    <!-- Buttons -->
+    <div class="component-group-wrapper">
+      <h2 class="component-group-title">Buttons</h2>
+      <div class="buttons-container justify-center">
+        <button class="keycap keycap-cream">ESC</button>
 
-    <button class="keycap keycap-grey">ENTER</button>
+        <button class="keycap keycap-grey">ENTER</button>
 
-    <button class="keycap keycap-orange">SHIFT</button>
-  </div>
-</div>
-
-<div class="mech-demo-container">
-  <div class="section-title">Check Boxes</div>
-  <div class="mech-switch-stack justify-center">
-    <div class="switch-field">
-      <label>Keycap Toggle</label>
-      <label class="mech-key-check">
-        <input type="checkbox" />
-        <span class="key-surface"></span>
-      </label>
-    </div>
-
-    <div class="switch-field">
-      <label>Industrial Slider</label>
-      <label class="mech-slider">
-        <input type="checkbox" />
-        <span class="slider-track">
-          <span class="slider-knob"></span>
-        </span>
-      </label>
-    </div>
-
-    <div class="switch-field">
-      <label>Status LED</label>
-      <label class="mech-led-btn">
-        <input type="checkbox" />
-        <span class="led-body"></span>
-      </label>
-    </div>
-  </div>
-</div>
-
-<div class="mech-demo-container">
-  <div class="section-title">Selects</div>
-  <div class="justify-center grid">
-    <div class="mech-select-stack">
-      <div class="select-field">
-        <label class="label-tech">Layout Profile</label>
-        <div class="select-wrapper key-style">
-          <select>
-            <option>ANSI-US</option>
-            <option>ISO-UK</option>
-            <option>JIS-JP</option>
-          </select>
-        </div>
+        <button class="keycap keycap-orange">SHIFT</button>
       </div>
+    </div>
 
-      <div class="select-field">
-        <label class="label-tech">System Mode</label>
-        <div class="select-wrapper display-style">
-          <select>
-            <option>DEFAULT</option>
-            <option>OVERCLOCK</option>
-            <option>SLEEP_MODE</option>
-          </select>
+    <div class="component-group-wrapper">
+      <h2 class="component-group-title">Check Boxes</h2>
+      <div class="mech-switch-stack justify-center">
+        <div class="switch-field">
+          <label>Keycap Toggle</label>
+          <label class="mech-key-check">
+            <input type="checkbox" />
+            <span class="key-surface"></span>
+          </label>
+        </div>
+
+        <div class="switch-field">
+          <label>Industrial Slider</label>
+          <label class="mech-slider">
+            <input type="checkbox" />
+            <span class="slider-track">
+              <span class="slider-knob"></span>
+            </span>
+          </label>
+        </div>
+
+        <div class="switch-field">
+          <label>Status LED</label>
+          <label class="mech-led-btn">
+            <input type="checkbox" />
+            <span class="led-body"></span>
+          </label>
         </div>
       </div>
     </div>
-  </div>
-</div>
 
-<div class="mech-demo-container">
-  <div class="section-title">Inputs</div>
-  <div class="justify-center grid">
-    <div class="mech-input-stack">
-      <div class="input-field">
-        <label>Keycap Style</label>
-        <input type="text" class="input-keycap" placeholder="SEARCH..." />
-      </div>
+    <div class="component-group-wrapper">
+      <h2 class="component-group-title">Selects</h2>
+      <div class="justify-center grid">
+        <div class="mech-select-stack">
+          <div class="select-field">
+            <label class="label-tech">Layout Profile</label>
+            <div class="select-wrapper key-style">
+              <select>
+                <option>ANSI-US</option>
+                <option>ISO-UK</option>
+                <option>JIS-JP</option>
+              </select>
+            </div>
+          </div>
 
-      <div class="input-field">
-        <label>Digital Status</label>
-        <div class="display-frame">
-          <input
-            type="text"
-            class="input-display"
-            placeholder="SYSTEM READY_"
-          />
+          <div class="select-field">
+            <label class="label-tech">System Mode</label>
+            <div class="select-wrapper display-style">
+              <select>
+                <option>DEFAULT</option>
+                <option>OVERCLOCK</option>
+                <option>SLEEP_MODE</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="input-field">
-        <label>Industrial Slot</label>
-        <input
-          type="text"
-          class="input-slot"
-          placeholder="ENTER COMMAND..."
-        />
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="mech-demo-container">
-  <div class="section-title">Cards</div>
-  <div class="cards-container justify-center">
-    <div class="mech-card status-card active">
-      <div class="mech-card-header">System Status</div>
-      <div class="mech-card-title">Main Console</div>
-      <div class="mech-card-body">
-        All systems operational. Network connection stable.
-      </div>
-      <div class="mech-card-footer">
-        <span class="status-indicator">
-          <span class="status-dot online"></span>
-          ONLINE
-        </span>
-      </div>
     </div>
 
-    <div class="mech-card data-card">
-      <div class="mech-card-header">Data Readout</div>
-      <div class="mech-card-title">Telemetry</div>
-      <div class="data-row">
-        <span class="data-label">Frequency</span>
-        <span class="data-value highlight">98.7 MHz</span>
-      </div>
-      <div class="data-row">
-        <span class="data-label">Signal</span>
-        <span class="data-value">Strong</span>
-      </div>
-      <div class="data-row">
-        <span class="data-label">Temp</span>
-        <span class="data-value">24°C</span>
+    <div class="component-group-wrapper">
+      <h2 class="component-group-title">Inputs</h2>
+      <div class="justify-center grid">
+        <div class="mech-input-stack">
+          <div class="input-field">
+            <label>Keycap Style</label>
+            <input type="text" class="input-keycap" placeholder="SEARCH..." />
+          </div>
+
+          <div class="input-field">
+            <label>Digital Status</label>
+            <div class="display-frame">
+              <input
+                type="text"
+                class="input-display"
+                placeholder="SYSTEM READY_"
+              />
+            </div>
+          </div>
+
+          <div class="input-field">
+            <label>Industrial Slot</label>
+            <input
+              type="text"
+              class="input-slot"
+              placeholder="ENTER COMMAND..."
+            />
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="mech-card control-card">
-      <div class="mech-card-header">Controls</div>
-      <div class="mech-card-title">Settings</div>
-      <div class="control-row">
-        <span class="control-label">Power</span>
-        <label class="mini-switch">
-          <input type="checkbox" checked />
-          <span class="mini-track"><span class="mini-knob"></span></span>
-        </label>
-      </div>
-      <div class="control-row">
-        <span class="control-label">Audio</span>
-        <label class="mini-switch">
-          <input type="checkbox" />
-          <span class="mini-track"><span class="mini-knob"></span></span>
-        </label>
-      </div>
-      <div class="control-row">
-        <span class="control-label">Radio</span>
-        <label class="mini-switch">
-          <input type="checkbox" checked />
-          <span class="mini-track"><span class="mini-knob"></span></span>
-        </label>
+    <div class="component-group-wrapper">
+      <h2 class="component-group-title">Cards</h2>
+      <div class="cards-container justify-center">
+        <div class="mech-card status-card active">
+          <div class="mech-card-header">System Status</div>
+          <div class="mech-card-title">Main Console</div>
+          <div class="mech-card-body">
+            All systems operational. Network connection stable.
+          </div>
+          <div class="mech-card-footer">
+            <span class="status-indicator">
+              <span class="status-dot online"></span>
+              ONLINE
+            </span>
+          </div>
+        </div>
+
+        <div class="mech-card data-card">
+          <div class="mech-card-header">Data Readout</div>
+          <div class="mech-card-title">Telemetry</div>
+          <div class="data-row">
+            <span class="data-label">Frequency</span>
+            <span class="data-value highlight">98.7 MHz</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Signal</span>
+            <span class="data-value">Strong</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Temp</span>
+            <span class="data-value">24°C</span>
+          </div>
+        </div>
+
+        <div class="mech-card control-card">
+          <div class="mech-card-header">Controls</div>
+          <div class="mech-card-title">Settings</div>
+          <div class="control-row">
+            <span class="control-label">Power</span>
+            <label class="mini-switch">
+              <input type="checkbox" checked />
+              <span class="mini-track"><span class="mini-knob"></span></span>
+            </label>
+          </div>
+          <div class="control-row">
+            <span class="control-label">Audio</span>
+            <label class="mini-switch">
+              <input type="checkbox" />
+              <span class="mini-track"><span class="mini-knob"></span></span>
+            </label>
+          </div>
+          <div class="control-row">
+            <span class="control-label">Radio</span>
+            <label class="mini-switch">
+              <input type="checkbox" checked />
+              <span class="mini-track"><span class="mini-knob"></span></span>
+            </label>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
-<div class="mech-demo-container">
-  <div class="section-title">Tables</div>
-  <div class="mech-tables-container">
-    <div class="table-wrapper">
-      <label class="label-tech">System Status Log</label>
-      <table class="mech-table-dark">
-        <thead>
-          <tr>
-            <th>Module</th>
-            <th>Status</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Processor</td>
-            <td><span class="status-led"></span> Active</td>
-            <td>0.85ms</td>
-          </tr>
-          <tr>
-            <td>Backlight</td>
-            <td><span class="status-led orange"></span> Warning</td>
-            <td>40%</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="component-group-wrapper">
+      <h2 class="component-group-title">Tables</h2>
+      <div class="mech-tables-container">
+        <div class="table-wrapper">
+          <label class="label-tech">System Status Log</label>
+          <table class="mech-table-dark">
+            <thead>
+              <tr>
+                <th>Module</th>
+                <th>Status</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Processor</td>
+                <td><span class="status-led"></span> Active</td>
+                <td>0.85ms</td>
+              </tr>
+              <tr>
+                <td>Backlight</td>
+                <td><span class="status-led orange"></span> Warning</td>
+                <td>40%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-wrapper">
+          <label class="label-tech">Parts Inventory</label>
+          <table class="mech-table-light">
+            <thead>
+              <tr>
+                <th>Part No.</th>
+                <th>Color</th>
+                <th>Stock</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="key-cell">K-75-C</td>
+                <td>Cream</td>
+                <td>120</td>
+              </tr>
+              <tr>
+                <td class="key-cell orange">K-75-O</td>
+                <td>Orange</td>
+                <td>14</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
 
-    <div class="table-wrapper">
-      <label class="label-tech">Parts Inventory</label>
-      <table class="mech-table-light">
-        <thead>
-          <tr>
-            <th>Part No.</th>
-            <th>Color</th>
-            <th>Stock</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="key-cell">K-75-C</td>
-            <td>Cream</td>
-            <td>120</td>
-          </tr>
-          <tr>
-            <td class="key-cell orange">K-75-O</td>
-            <td>Orange</td>
-            <td>14</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="component-group-wrapper">
+      <h2 class="component-group-title">Progress</h2>
+      <label class="label-tech">Native Progress</label>
+      <progress class="mech-progress-native" value="50" max="100"></progress>
     </div>
-  </div>
-</div>
 
-<div class="mech-demo-container">
-  <div class="section-title">Progress</div>
-  <label class="label-tech">Native Progress</label>
-  <progress class="mech-progress-native" value="50" max="100"></progress>
-</div>
-
-    <div class="section-title">Dialog</div>
-    <div class="mech-demo-container">
+    <div class="component-group-wrapper">
+      <h2 class="component-group-title">Dialog</h2>
       <div class="dialog-demo-container justify-center">
         <button
           onclick="document.getElementById('dialog-standard').showModal()"
@@ -311,8 +312,8 @@ import "../styles/radio-buttons.css";
       </div>
     </div>
 
-    <div class="section-title">Badges</div>
-    <div class="mech-demo-container">
+    <div class="component-group-wrapper">
+      <h2 class="component-group-title">Badges</h2>
       <div class="flex justify-center">
         <div class="mech-badge-panel">
           <div class="badge-group">
@@ -337,8 +338,8 @@ import "../styles/radio-buttons.css";
       </div>
     </div>
 
-    <div class="section-title">Text Area</div>
-    <div class="mech-demo-container">
+    <div class="component-group-wrapper">
+      <h2 class="component-group-title">Text Area</h2>
       <div class="grid justify-center">
         <div class="mech-textarea-stack">
           <div class="textarea-field">
@@ -358,8 +359,8 @@ import "../styles/radio-buttons.css";
       </div>
     </div>
 
-    <div class="section-title">Radio Buttons</div>
-    <div class="mech-demo-container">
+    <div class="component-group-wrapper">
+      <h2 class="component-group-title">Radio Buttons</h2>
       <div class="flex justify-center">
         <div class="mech-radio-stack">
           <div class="radio-group">

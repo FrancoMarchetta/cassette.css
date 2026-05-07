@@ -1,16 +1,4 @@
-@import "./component-group.css";
-body{
-    justify-content: center;
-    display: grid;
-    background-color: #1a1a1a;
-}
-
-h1{
-    color: #ffff
-}
-
-/* === Component Demo Container === */
-.mech-demo-container {
+.component-group-wrapper {
   background-color: #2a2a2a;
   border-radius: 8px;
   padding: 24px;
@@ -24,7 +12,7 @@ h1{
   overflow: hidden;
 }
 
-.mech-demo-container::before {
+.component-group-wrapper::before {
   content: "";
   position: absolute;
   top: 0;
@@ -34,7 +22,7 @@ h1{
   background: linear-gradient(90deg, transparent, rgba(214,90,49,0.3), transparent);
 }
 
-.mech-demo-container::after {
+.component-group-wrapper::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -44,8 +32,7 @@ h1{
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
 }
 
-/* === Section Title === */
-.section-title {
+.component-group-title {
   text-align: center;
   font-family: 'Courier New', monospace;
   font-size: 24px;
@@ -57,8 +44,8 @@ h1{
   position: relative;
 }
 
-.section-title::before,
-.section-title::after {
+.component-group-title::before,
+.component-group-title::after {
   content: "//";
   color: #d65a31;
   margin: 0 12px;
