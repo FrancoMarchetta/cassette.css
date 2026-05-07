@@ -3,8 +3,8 @@ const { title, css, html } = Astro.props;
 import { Code } from "astro:components";
 ---
 
-<section class="w-330 justify-center grid cassette-component">
-    <h1 class="flex justify-center text-4xl mb-4">{title}</h1>
+<section class="w-330 justify-center grid cassette-component component-group">
+    <h1 class="component-group-title">{title}</h1>
 
     <section class="flex gap-5 justify-center">
         <div class="mt-5 mb-5 flex gap-5">
@@ -12,49 +12,56 @@ import { Code } from "astro:components";
         </div>
 
         <div class="flex gap-2 items-center">
-            {html !== undefined && (
-                <button data-toggle="html" class="p-1.5 bg-gray-700 border border-gray-500 rounded-md hover:bg-gray-600 hover:border-orange-500 transition-colors text-orange-400 text-xs">
-                    HTML
-                </button>
-            )}
-            {css !== undefined && (
-                <button data-toggle="css" class="p-1.5 bg-gray-700 border border-gray-500 rounded-md hover:bg-gray-600 hover:border-orange-500 transition-colors text-orange-400 text-xs">
-                    CSS
-                </button>
-            )}
+            {
+                html !== undefined && (
+                    <button
+                        data-toggle="html"
+                        class="p-1.5 bg-gray-700 border border-gray-500 rounded-md hover:bg-gray-600 hover:border-orange-500 transition-colors text-orange-400 text-xs"
+                    >
+                        HTML
+                    </button>
+                )
+            }
+            {
+                css !== undefined && (
+                    <button
+                        data-toggle="css"
+                        class="p-1.5 bg-gray-700 border border-gray-500 rounded-md hover:bg-gray-600 hover:border-orange-500 transition-colors text-orange-400 text-xs"
+                    >
+                        CSS
+                    </button>
+                )
+            }
         </div>
     </section>
 
-    {html !== undefined && (
-        <div data-block="html" class="hidden">
-            <Code lang="html" theme="dark-plus" code={html} />
-        </div>
-    )}
-    {css !== undefined && (
-        <div data-block="css" class="hidden">
-            <Code lang="css" theme="dark-plus" code={css} />
-        </div>
-    )}
+    {
+        html !== undefined && (
+            <div data-block="html" class="hidden">
+                <Code lang="html" theme="dark-plus" code={html} />
+            </div>
+        )
+    }
+    {
+        css !== undefined && (
+            <div data-block="css" class="hidden">
+                <Code lang="css" theme="dark-plus" code={css} />
+            </div>
+        )
+    }
 </section>
 
 <script>
-    document.querySelectorAll('.cassette-component').forEach(section => {
-        const buttons = section.querySelectorAll('[data-toggle]');
-        buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const blockType = btn.getAttribute('data-toggle');
-                const block = section.querySelector(`[data-block="${blockType}"]`);
-                block?.classList.toggle('hidden');
+    document.querySelectorAll(".cassette-component").forEach((section) => {
+        const buttons = section.querySelectorAll("[data-toggle]");
+        buttons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const blockType = btn.getAttribute("data-toggle");
+                const block = section.querySelector(
+                    `[data-block="${blockType}"]`,
+                );
+                block?.classList.toggle("hidden");
             });
         });
     });
 </script>
-
-    <div id="html-block">
-        <Code lang="html" theme="dark-plus" code={html} />
-    </div>
-
-    <div id="css-block">
-        <Code lang="css" theme="dark-plus" code={css} />
-    </div>
-</section>

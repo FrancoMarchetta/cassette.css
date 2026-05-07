@@ -1,51 +1,38 @@
-@import "./component-group.css";
-body{
-    justify-content: center;
-    display: grid;
-    background-color: #1a1a1a;
-}
-
-h1{
-    color: #ffff
-}
-
-/* === Component Demo Container === */
-.mech-demo-container {
+.component-group {
   background-color: #2a2a2a;
   border-radius: 8px;
   padding: 24px;
   box-shadow:
-    inset 0 2px 4px rgba(255,255,255,0.05),
+    inset 0 2px 4px rgba(255, 255, 255, 0.05),
     0 4px 0 #111,
-    0 6px 15px rgba(0,0,0,0.4);
+    0 6px 15px rgba(0, 0, 0, 0.4);
   border-left: 4px solid #d65a31;
   margin-bottom: 2rem;
   position: relative;
   overflow: hidden;
 }
 
-.mech-demo-container::before {
+.component-group::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(214,90,49,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(214, 90, 49, 0.3), transparent);
 }
 
-.mech-demo-container::after {
+.component-group::after {
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
 }
 
-/* === Section Title === */
-.section-title {
+.component-group-title {
   text-align: center;
   font-family: 'Courier New', monospace;
   font-size: 24px;
@@ -57,8 +44,8 @@ h1{
   position: relative;
 }
 
-.section-title::before,
-.section-title::after {
+.component-group-title::before,
+.component-group-title::after {
   content: "//";
   color: #d65a31;
   margin: 0 12px;

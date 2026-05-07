@@ -13,6 +13,8 @@ import "../styles/dialog.css";
 import "../styles/badges.css";
 import "../styles/text-area.css";
 import "../styles/radio-buttons.css";
+import "../styles/component-group.css";
+import CodeBlockButton from "../components/CodeBlockButton.astro";
 ---
 
 <Layout>
@@ -21,235 +23,1353 @@ import "../styles/radio-buttons.css";
   </div>
 
   <div class="page-content max-w-6xl mx-auto px-4">
-<!-- Buttons -->
-<div class="mech-demo-container">
-  <div class="section-title">Buttons</div>
-  <div class="buttons-container justify-center">
-    <button class="keycap keycap-cream">ESC</button>
+    <!-- Buttons -->
+    <CassetteComponent
+      title="Buttons"
+      html=`.
+        <button class="keycap keycap-cream">ESC</button>
 
-    <button class="keycap keycap-grey">ENTER</button>
+        <button class="keycap keycap-grey">ENTER</button>
 
-    <button class="keycap keycap-orange">SHIFT</button>
-  </div>
-</div>
+        <button class="keycap keycap-orange">SHIFT</button>
+          
+      `
+      css=`
+      .buttons-container {
+  display: flex;
+  gap: 20px;
+}
 
-<div class="mech-demo-container">
-  <div class="section-title">Check Boxes</div>
-  <div class="mech-switch-stack justify-center">
-    <div class="switch-field">
-      <label>Keycap Toggle</label>
-      <label class="mech-key-check">
-        <input type="checkbox" />
-        <span class="key-surface"></span>
-      </label>
-    </div>
+/* Estilo base para todas las teclas (el "relieve" analógico) */
+.keycap {
+  position: relative;
+  display: inline-block;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: none;
+  border-radius: 12px; /* Bordes muy redondeados */
+  cursor: pointer;
+  transition: all 0.1s ease;
+  
+  /* Efecto de sombra 3D (el cuerpo de la tecla) */
+  box-shadow: 
+    0 8px 0 rgba(0,0,0,0.2),         /* Grosor principal de la tecla */
+    0 10px 15px rgba(0,0,0,0.3),      /* Sombra proyectada en la base */
+    inset 0 1px 1px rgba(255,255,255,0.3); /* Brillo superior interno */
+}
 
-    <div class="switch-field">
-      <label>Industrial Slider</label>
-      <label class="mech-slider">
-        <input type="checkbox" />
-        <span class="slider-track">
-          <span class="slider-knob"></span>
-        </span>
-      </label>
-    </div>
+/* Efecto de superficie cóncava/esférica (el "analógico") */
+.keycap::before {
+  content: "";
+  position: absolute;
+  top: 5px; right: 5px; bottom: 5px; left: 5px;
+  border-radius: 9px;
+  /* Degradado radial sutil para simular la curvatura */
+  background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.1) 100%);
+  z-index: -1;
+}
 
-    <div class="switch-field">
-      <label>Status LED</label>
-      <label class="mech-led-btn">
-        <input type="checkbox" />
-        <span class="led-body"></span>
-      </label>
-    </div>
-  </div>
-</div>
+/* Variación Crema */
+.keycap-cream {
+  background-color: #f1ebd8;
+  color: #555;
+  box-shadow: 
+    0 8px 0 #d8d0ba,                 /* Lado crema más oscuro */
+    0 10px 15px rgba(0,0,0,0.2), 
+    inset 0 1px 1px rgba(255,255,255,0.6);
+}
 
-<div class="mech-demo-container">
-  <div class="section-title">Selects</div>
-  <div class="justify-center grid">
-    <div class="mech-select-stack">
-      <div class="select-field">
-        <label class="label-tech">Layout Profile</label>
-        <div class="select-wrapper key-style">
-          <select>
-            <option>ANSI-US</option>
-            <option>ISO-UK</option>
-            <option>JIS-JP</option>
-          </select>
+/* Variación Gris (Gris Oscuro) */
+.keycap-grey {
+  background-color: #4a4a4a;
+  color: #fff;
+  box-shadow: 
+    0 8px 0 #333,                    /* Lado gris más oscuro */
+    0 10px 15px rgba(0,0,0,0.3), 
+    inset 0 1px 1px rgba(255,255,255,0.1);
+}
+
+/* Variación Naranja */
+.keycap-orange {
+  background-color: #d65a31;
+  color: #fff;
+  box-shadow: 
+    0 8px 0 #a94125,                 /* Lado naranja más oscuro */
+    0 10px 15px rgba(0,0,0,0.3), 
+    inset 0 1px 1px rgba(255,255,255,0.2);
+}
+
+
+/* Al pasar el ratón (ligeramente más claro) */
+.keycap:hover {
+  filter: brightness(1.05);
+}
+
+/* Botón Recessed (hundido/empotrado) */
+.recessed-btn {
+  position: relative;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #aaa;
+  background-color: #2a2a2a;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: inset 0 4px 8px rgba(0,0,0,0.6), 0 2px 0 rgba(255,255,255,0.05);
+  transition: all 0.1s ease;
+}
+
+.recessed-btn:active {
+  background-color: #333;
+  color: #d65a31;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.8), 0 1px 0 rgba(255,255,255,0.05);
+  transform: translateY(1px);
+}
+
+/* Al pulsar (recorrido de la tecla) */
+.keycap:active {
+  box-shadow: 
+    0 2px 0 rgba(0,0,0,0.2),         /* El grosor se comprime */
+    0 2px 3px rgba(0,0,0,0.3);        /* La sombra de base disminuye */
+  transform: translateY(6px);         /* La tecla "baja" */
+}
+
+
+      `
+    >
+      <div class="buttons-container justify-center">
+        <button class="keycap keycap-cream">ESC</button>
+
+        <button class="keycap keycap-grey">ENTER</button>
+
+        <button class="keycap keycap-orange">SHIFT</button>
+      </div>
+    </CassetteComponent>
+
+    <CassetteComponent
+      title="Check Boxes"
+      html=`.
+        <div class="switch-field">
+          <label>Keycap Toggle</label>
+          <label class="mech-key-check">
+            <input type="checkbox" />
+            <span class="key-surface"></span>
+          </label>
+        </div>
+
+        <div class="switch-field">
+          <label>Industrial Slider</label>
+          <label class="mech-slider">
+            <input type="checkbox" />
+            <span class="slider-track">
+              <span class="slider-knob"></span>
+            </span>
+          </label>
+        </div>
+
+        <div class="switch-field">
+          <label>Status LED</label>
+          <label class="mech-led-btn">
+            <input type="checkbox" />
+            <span class="led-body"></span>
+          </label>
+        </div>
+      `
+      css=`
+      .mech-switch-stack {
+  display: flex;
+  gap: 30px;
+  padding: 20px;
+}
+
+.switch-field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.switch-field label:first-child {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: bold;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mech-key-check input, 
+.mech-slider input, 
+.mech-led-btn input {
+  opacity: 0; width: 0; height: 0; position: absolute;
+}
+
+.mech-key-check {
+  position: relative;
+  width: 50px; height: 50px;
+  cursor: pointer;
+}
+
+.key-surface {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #f1ebd8;
+  border-radius: 8px;
+  box-shadow: 0 6px 0 #d8d0ba, 0 8px 10px rgba(0,0,0,0.1);
+  transition: .1s;
+}
+
+.mech-key-check input:checked + .key-surface {
+  background-color: #d65a31;
+  transform: translateY(4px);
+  box-shadow: 0 2px 0 #a94125, 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.mech-slider {
+  position: relative;
+  width: 70px; height: 34px;
+  cursor: pointer;
+}
+
+.slider-track {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #222;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.7);
+}
+
+.slider-knob {
+  position: absolute;
+  width: 30px; height: 26px;
+  left: 4px; top: 4px;
+  background-color: #f1ebd8;
+  border-radius: 2px;
+  transition: .2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 3px 0 #d8d0ba;
+}
+
+.mech-slider input:checked + .slider-track .slider-knob {
+  transform: translateX(32px);
+  background-color: #d65a31;
+  box-shadow: 0 3px 0 #a94125;
+}
+
+.mech-led-btn {
+  position: relative;
+  width: 34px; height: 34px;
+  cursor: pointer;
+}
+
+.led-body {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #333;
+  border-radius: 50%;
+  box-shadow: 0 4px 0 #111;
+  transition: .1s;
+}
+
+.led-body::after {
+  content: "";
+  position: absolute;
+  top: 30%; left: 30%; width: 40%; height: 40%;
+  background-color: #555;
+  border-radius: 50%;
+  transition: .2s;
+}
+
+.mech-led-btn input:checked + .led-body {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #111;
+}
+
+.mech-led-btn input:checked + .led-body::after {
+  background-color: #d65a31;
+  box-shadow: 0 0 10px #d65a31;
+}
+      `
+    >
+      <div class="mech-switch-stack justify-center">
+        <div class="switch-field">
+          <label>Keycap Toggle</label>
+          <label class="mech-key-check">
+            <input type="checkbox" />
+            <span class="key-surface"></span>
+          </label>
+        </div>
+
+        <div class="switch-field">
+          <label>Industrial Slider</label>
+          <label class="mech-slider">
+            <input type="checkbox" />
+            <span class="slider-track">
+              <span class="slider-knob"></span>
+            </span>
+          </label>
+        </div>
+
+        <div class="switch-field">
+          <label>Status LED</label>
+          <label class="mech-led-btn">
+            <input type="checkbox" />
+            <span class="led-body"></span>
+          </label>
         </div>
       </div>
+    </CassetteComponent>
 
-      <div class="select-field">
-        <label class="label-tech">System Mode</label>
-        <div class="select-wrapper display-style">
-          <select>
-            <option>DEFAULT</option>
-            <option>OVERCLOCK</option>
-            <option>SLEEP_MODE</option>
-          </select>
+    <CassetteComponent
+      title="Selects"
+      html=`.
+        <div class="select-field">
+          <label class="label-tech">Layout Profile</label>
+          <div class="select-wrapper key-style">
+            <select>
+              <option>ANSI-US</option>
+              <option>ISO-UK</option>
+              <option>JIS-JP</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="select-field">
+          <label class="label-tech">System Mode</label>
+          <div class="select-wrapper display-style">
+            <select>
+              <option>DEFAULT</option>
+              <option>OVERCLOCK</option>
+              <option>SLEEP_MODE</option>
+            </select>
+          </div>
+        </div>
+      `
+      css=`
+      .mech-select-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  width: 280px;
+}
+
+.select-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label-tech {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: bold;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.select-wrapper select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  padding: 12px 35px 12px 15px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.select-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #d65a31;
+  pointer-events: none;
+}
+
+.key-style select {
+  background-color: #f1ebd8;
+  color: #333;
+  border-radius: 6px;
+  box-shadow: 0 5px 0 #d8d0ba, 0 5px 10px rgba(0,0,0,0.1);
+  transition: all 0.1s;
+}
+
+.key-style:active select {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #d8d0ba, 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.display-style select {
+  background-color: #222;
+  color: #f1ebd8;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.8);
+}
+
+.display-style select option {
+  background-color: #222;
+  color: #f1ebd8;
+}
+      `
+    >
+      <div class="justify-center grid">
+        <div class="mech-select-stack">
+          <div class="select-field">
+            <label class="label-tech">Layout Profile</label>
+            <div class="select-wrapper key-style">
+              <select>
+                <option>ANSI-US</option>
+                <option>ISO-UK</option>
+                <option>JIS-JP</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="select-field">
+            <label class="label-tech">System Mode</label>
+            <div class="select-wrapper display-style">
+              <select>
+                <option>DEFAULT</option>
+                <option>OVERCLOCK</option>
+                <option>SLEEP_MODE</option>
+              </select>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+    </CassetteComponent>
 
-<div class="mech-demo-container">
-  <div class="section-title">Inputs</div>
-  <div class="justify-center grid">
-    <div class="mech-input-stack">
-      <div class="input-field">
-        <label>Keycap Style</label>
-        <input type="text" class="input-keycap" placeholder="SEARCH..." />
-      </div>
+    <CassetteComponent
+      title="Inputs"
+      html=`.
+        <div class="input-field">
+          <label>Keycap Style</label>
+          <input type="text" class="input-keycap" placeholder="SEARCH..." />
+        </div>
 
-      <div class="input-field">
-        <label>Digital Status</label>
-        <div class="display-frame">
+        <div class="input-field">
+          <label>Digital Status</label>
+          <div class="display-frame">
+            <input
+              type="text"
+              class="input-display"
+              placeholder="SYSTEM READY_"
+            />
+          </div>
+        </div>
+
+        <div class="input-field">
+          <label>Industrial Slot</label>
           <input
             type="text"
-            class="input-display"
-            placeholder="SYSTEM READY_"
+            class="input-slot"
+            placeholder="ENTER COMMAND..."
           />
         </div>
-      </div>
+      `
+      css=`
+      .mech-input-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  width: 300px;
+}
 
-      <div class="input-field">
-        <label>Industrial Slot</label>
-        <input
-          type="text"
-          class="input-slot"
-          placeholder="ENTER COMMAND..."
-        />
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-field label {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: bold;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.input-keycap {
+  background-color: #f1ebd8;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 15px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  outline: none;
+  box-shadow: 0 6px 0 #d8d0ba, 0 8px 10px rgba(0,0,0,0.15);
+  transition: all 0.1s ease;
+}
+
+.input-keycap:focus {
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 #d8d0ba, 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.display-frame {
+  background-color: #1a1a1a;
+  padding: 4px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 0px #444;
+}
+
+.input-display {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #2a2a2a;
+  color: #d65a31;
+  border: 1px solid #333;
+  padding: 10px;
+  font-family: 'Courier New', monospace;
+  outline: none;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.input-display:focus {
+  text-shadow: 0 0 5px rgba(214, 90, 49, 0.6);
+  border-color: #d65a31;
+}
+
+.input-slot {
+  background-color: #333;
+  color: #f1ebd8;
+  border: none;
+  border-left: 5px solid #d65a31;
+  padding: 12px;
+  outline: none;
+  font-family: 'Courier New', monospace;
+  box-shadow: inset 4px 0 10px rgba(0,0,0,0.3);
+  transition: all 0.2s;
+}
+
+.input-slot:focus {
+  background-color: #3d3d3d;
+  border-left-width: 10px;
+}
+      `
+    >
+      <div class="justify-center grid">
+        <div class="mech-input-stack">
+          <div class="input-field">
+            <label>Keycap Style</label>
+            <input type="text" class="input-keycap" placeholder="SEARCH..." />
+          </div>
+
+          <div class="input-field">
+            <label>Digital Status</label>
+            <div class="display-frame">
+              <input
+                type="text"
+                class="input-display"
+                placeholder="SYSTEM READY_"
+              />
+            </div>
+          </div>
+
+          <div class="input-field">
+            <label>Industrial Slot</label>
+            <input
+              type="text"
+              class="input-slot"
+              placeholder="ENTER COMMAND..."
+            />
+          </div>
+        </div>
       </div>
+    </CassetteComponent>
+
+    <CassetteComponent
+      title="Cards"
+      html=`.
+        <div class="mech-card status-card active">
+          <div class="mech-card-header">System Status</div>
+          <div class="mech-card-title">Main Console</div>
+          <div class="mech-card-body">
+            All systems operational. Network connection stable.
+          </div>
+          <div class="mech-card-footer">
+            <span class="status-indicator">
+              <span class="status-dot online"></span>
+              ONLINE
+            </span>
+          </div>
+        </div>
+
+        <div class="mech-card data-card">
+          <div class="mech-card-header">Data Readout</div>
+          <div class="mech-card-title">Telemetry</div>
+          <div class="data-row">
+            <span class="data-label">Frequency</span>
+            <span class="data-value highlight">98.7 MHz</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Signal</span>
+            <span class="data-value">Strong</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Temp</span>
+            <span class="data-value">24°C</span>
+          </div>
+        </div>
+
+        <div class="mech-card control-card">
+          <div class="mech-card-header">Controls</div>
+          <div class="mech-card-title">Settings</div>
+          <div class="control-row">
+            <span class="control-label">Power</span>
+            <label class="mini-switch">
+              <input type="checkbox" checked />
+              <span class="mini-track"><span class="mini-knob"></span></span>
+            </label>
+          </div>
+          <div class="control-row">
+            <span class="control-label">Audio</span>
+            <label class="mini-switch">
+              <input type="checkbox" />
+              <span class="mini-track"><span class="mini-knob"></span></span>
+            </label>
+          </div>
+          <div class="control-row">
+            <span class="control-label">Radio</span>
+            <label class="mini-switch">
+              <input type="checkbox" checked />
+              <span class="mini-track"><span class="mini-knob"></span></span>
+            </label>
+          </div>
+        </div>
+      `
+      css=`
+      .cards-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.mech-card {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 20px;
+  width: 280px;
+  box-shadow:
+    inset 0 2px 4px rgba(255,255,255,0.05),
+    0 4px 0 #111,
+    0 6px 15px rgba(0,0,0,0.4);
+  border-left: 4px solid #d65a31;
+}
+
+.mech-card-header {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: bold;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #333;
+}
+
+.mech-card-title {
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  font-weight: bold;
+  color: #f1ebd8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.mech-card-body {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: #888;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.mech-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #333;
+}
+
+.status-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.status-card::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  background: #555;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.status-card.active::before {
+  background: #d65a31;
+  box-shadow: 0 0 10px #d65a31, 0 0 20px rgba(214,90,49,0.5);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #555;
+}
+
+.status-dot.online {
+  background: #d65a31;
+  box-shadow: 0 0 6px #d65a31;
+}
+
+.data-card {
+  border-left-color: #f1ebd8;
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #333;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+}
+
+.data-label {
+  color: #666;
+  text-transform: uppercase;
+}
+
+.data-value {
+  color: #f1ebd8;
+  font-weight: bold;
+}
+
+.data-value.highlight {
+  color: #d65a31;
+}
+
+.control-card {
+  border-left-color: #4a4a4a;
+}
+
+.control-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #333;
+}
+
+.control-label {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #888;
+  text-transform: uppercase;
+}
+
+.mini-switch {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.mini-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.mini-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #222;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.7);
+  transition: 0.2s;
+}
+
+.mini-knob {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  left: 3px;
+  top: 3px;
+  background-color: #f1ebd8;
+  border-radius: 1px;
+  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 0 #d8d0ba;
+}
+
+.mini-switch input:checked + .mini-track {
+  background-color: #d65a31;
+}
+
+.mini-switch input:checked + .mini-track .mini-knob {
+  transform: translateX(16px);
+  background-color: #fff;
+}
+      `
+    >
+      <div class="cards-container justify-center">
+        <div class="mech-card status-card active">
+          <div class="mech-card-header">System Status</div>
+          <div class="mech-card-title">Main Console</div>
+          <div class="mech-card-body">
+            All systems operational. Network connection stable.
+          </div>
+          <div class="mech-card-footer">
+            <span class="status-indicator">
+              <span class="status-dot online"></span>
+              ONLINE
+            </span>
+          </div>
+        </div>
+
+        <div class="mech-card data-card">
+          <div class="mech-card-header">Data Readout</div>
+          <div class="mech-card-title">Telemetry</div>
+          <div class="data-row">
+            <span class="data-label">Frequency</span>
+            <span class="data-value highlight">98.7 MHz</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Signal</span>
+            <span class="data-value">Strong</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Temp</span>
+            <span class="data-value">24°C</span>
+          </div>
+        </div>
+
+        <div class="mech-card control-card">
+          <div class="mech-card-header">Controls</div>
+          <div class="mech-card-title">Settings</div>
+          <div class="control-row">
+            <span class="control-label">Power</span>
+            <label class="mini-switch">
+              <input type="checkbox" checked />
+              <span class="mini-track"><span class="mini-knob"></span></span>
+            </label>
+          </div>
+          <div class="control-row">
+            <span class="control-label">Audio</span>
+            <label class="mini-switch">
+              <input type="checkbox" />
+              <span class="mini-track"><span class="mini-knob"></span></span>
+            </label>
+          </div>
+          <div class="control-row">
+            <span class="control-label">Radio</span>
+            <label class="mini-switch">
+              <input type="checkbox" checked />
+              <span class="mini-track"><span class="mini-knob"></span></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </CassetteComponent>
+
+    <CassetteComponent
+      title="Tables"
+      html=`.
+        <div class="table-wrapper">
+          <label class="label-tech">System Status Log</label>
+          <table class="mech-table-dark">
+            <thead>
+              <tr>
+                <th>Module</th>
+                <th>Status</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Processor</td>
+                <td><span class="status-led"></span> Active</td>
+                <td>0.85ms</td>
+              </tr>
+              <tr>
+                <td>Backlight</td>
+                <td><span class="status-led orange"></span> Warning</td>
+                <td>40%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-wrapper">
+          <label class="label-tech">Parts Inventory</label>
+          <table class="mech-table-light">
+            <thead>
+              <tr>
+                <th>Part No.</th>
+                <th>Color</th>
+                <th>Stock</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="key-cell">K-75-C</td>
+                <td>Cream</td>
+                <td>120</td>
+              </tr>
+              <tr>
+                <td class="key-cell orange">K-75-O</td>
+                <td>Orange</td>
+                <td>14</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      `
+      css=`
+      .mech-tables-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px;
+  font-family: 'Courier New', monospace;
+}
+
+.table-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.label-tech {
+  font-size: 12px;
+  color: #888;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mech-table-dark {
+  width: 100%;
+  border-collapse: collapse;
+  background: #222222;
+  color: #f1ebd8;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.5), 2px 2px 0px #444;
+}
+
+.mech-table-dark th {
+  background: #111111;
+  color: #d65a31;
+  text-align: left;
+  padding: 12px;
+  font-size: 13px;
+  border-bottom: 1px solid #333;
+}
+
+.mech-table-dark td {
+  padding: 12px;
+  border-bottom: 1px solid #2a2a2a;
+  font-size: 13px;
+}
+
+.status-led {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #00ff00;
+  border-radius: 50%;
+  margin-right: 5px;
+  box-shadow: 0 0 5px #00ff00;
+}
+
+.status-led.orange {
+  background: #d65a31;
+  box-shadow: 0 0 5px #d65a31;
+}
+
+.mech-table-light {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.mech-table-light th {
+  color: #666;
+  text-align: left;
+  padding: 0 15px;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.mech-table-light tr td {
+  background: #f1ebd8;
+  padding: 15px;
+  color: #4a4a4a;
+  box-shadow: 0 4px 0 #d8d0ba;
+  transition: transform 0.1s;
+}
+
+.mech-table-light tr td:first-child { border-radius: 6px 0 0 6px; }
+.mech-table-light tr td:last-child { border-radius: 0 6px 6px 0; }
+
+.mech-table-light tr:hover td {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 #d8d0ba;
+}
+
+.key-cell {
+  font-weight: bold;
+  color: #222;
+}
+
+.key-cell.orange {
+  color: #d65a31;
+}
+      `
+    >
+      <div class="mech-tables-container">
+        <div class="table-wrapper">
+          <label class="label-tech">System Status Log</label>
+          <table class="mech-table-dark">
+            <thead>
+              <tr>
+                <th>Module</th>
+                <th>Status</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Processor</td>
+                <td><span class="status-led"></span> Active</td>
+                <td>0.85ms</td>
+              </tr>
+              <tr>
+                <td>Backlight</td>
+                <td><span class="status-led orange"></span> Warning</td>
+                <td>40%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="table-wrapper">
+          <label class="label-tech">Parts Inventory</label>
+          <table class="mech-table-light">
+            <thead>
+              <tr>
+                <th>Part No.</th>
+                <th>Color</th>
+                <th>Stock</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="key-cell">K-75-C</td>
+                <td>Cream</td>
+                <td>120</td>
+              </tr>
+              <tr>
+                <td class="key-cell orange">K-75-O</td>
+                <td>Orange</td>
+                <td>14</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </CassetteComponent>
+
+    <CassetteComponent
+      title="Progress"
+      html=`.
+        <label class="label-tech">Native Progress</label>
+        <progress class="mech-progress-native" value="50" max="100"></progress>
+      `
+      css=`
+      .mech-progress-native {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 16px;
+  border: none;
+}
+
+.mech-progress-native::-webkit-progress-bar {
+  background-color: #1a1a1a;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 5px #000;
+}
+
+.mech-progress-native::-webkit-progress-value {
+  background-color: #d65a31;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(214, 90, 49, 0.5);
+}
+
+.mech-progress-native::-moz-progress-bar {
+  background-color: #d65a31;
+  border-radius: 3px;
+}
+      `
+    >
+    <div>
+      <label class="label-tech">Native Progress</label>
+      <progress class="mech-progress-native" value="50" max="100"></progress>
     </div>
-  </div>
-</div>
+    </CassetteComponent>
 
-<div class="mech-demo-container">
-  <div class="section-title">Cards</div>
-  <div class="cards-container justify-center">
-    <div class="mech-card status-card active">
-      <div class="mech-card-header">System Status</div>
-      <div class="mech-card-title">Main Console</div>
-      <div class="mech-card-body">
-        All systems operational. Network connection stable.
-      </div>
-      <div class="mech-card-footer">
-        <span class="status-indicator">
-          <span class="status-dot online"></span>
-          ONLINE
-        </span>
-      </div>
-    </div>
+    <CassetteComponent
+      title="Dialog"
+      html=`.
+        <button onclick="document.getElementById('dialog-standard').showModal()" class="keycap keycap-cream">Standard Dialog</button>
+        <button onclick="document.getElementById('dialog-error').showModal()" class="trigger-btn error">Error Dialog</button>
+        <button onclick="document.getElementById('dialog-terminal').showModal()" class="trigger-btn terminal">Terminal HUD</button>
 
-    <div class="mech-card data-card">
-      <div class="mech-card-header">Data Readout</div>
-      <div class="mech-card-title">Telemetry</div>
-      <div class="data-row">
-        <span class="data-label">Frequency</span>
-        <span class="data-value highlight">98.7 MHz</span>
-      </div>
-      <div class="data-row">
-        <span class="data-label">Signal</span>
-        <span class="data-value">Strong</span>
-      </div>
-      <div class="data-row">
-        <span class="data-label">Temp</span>
-        <span class="data-value">24°C</span>
-      </div>
-    </div>
+        <dialog id="dialog-standard" class="mech-dialog standard">...</dialog>
+        <dialog id="dialog-error" class="mech-dialog alert">...</dialog>
+        <dialog id="dialog-terminal" class="mech-dialog terminal">...</dialog>
+      `
+      css=`
+      .dialog-demo-container {
+    display: flex;
+    gap: 15px;
+    padding: 40px;
+    font-family: 'Courier New', monospace;
+}
 
-    <div class="mech-card control-card">
-      <div class="mech-card-header">Controls</div>
-      <div class="mech-card-title">Settings</div>
-      <div class="control-row">
-        <span class="control-label">Power</span>
-        <label class="mini-switch">
-          <input type="checkbox" checked />
-          <span class="mini-track"><span class="mini-knob"></span></span>
-        </label>
-      </div>
-      <div class="control-row">
-        <span class="control-label">Audio</span>
-        <label class="mini-switch">
-          <input type="checkbox" />
-          <span class="mini-track"><span class="mini-knob"></span></span>
-        </label>
-      </div>
-      <div class="control-row">
-        <span class="control-label">Radio</span>
-        <label class="mini-switch">
-          <input type="checkbox" checked />
-          <span class="mini-track"><span class="mini-knob"></span></span>
-        </label>
-      </div>
-    </div>
-  </div>
-</div>
+.trigger-btn {
+    padding: 12px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-family: inherit;
+    font-weight: bold;
+    background: #f1ebd8;
+    box-shadow: 0 4px 0 #d8d0ba;
+}
 
-<div class="mech-demo-container">
-  <div class="section-title">Tables</div>
-  <div class="mech-tables-container">
-    <div class="table-wrapper">
-      <label class="label-tech">System Status Log</label>
-      <table class="mech-table-dark">
-        <thead>
-          <tr>
-            <th>Module</th>
-            <th>Status</th>
-            <th>Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Processor</td>
-            <td><span class="status-led"></span> Active</td>
-            <td>0.85ms</td>
-          </tr>
-          <tr>
-            <td>Backlight</td>
-            <td><span class="status-led orange"></span> Warning</td>
-            <td>40%</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+.trigger-btn.error {
+    background: #d65a31;
+    color: #fff;
+    box-shadow: 0 4px 0 #a94125;
+}
 
-    <div class="table-wrapper">
-      <label class="label-tech">Parts Inventory</label>
-      <table class="mech-table-light">
-        <thead>
-          <tr>
-            <th>Part No.</th>
-            <th>Color</th>
-            <th>Stock</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="key-cell">K-75-C</td>
-            <td>Cream</td>
-            <td>120</td>
-          </tr>
-          <tr>
-            <td class="key-cell orange">K-75-O</td>
-            <td>Orange</td>
-            <td>14</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
+.trigger-btn.terminal {
+    background: #222;
+    color: #00ff41;
+    box-shadow: 0 4px 0 #000;
+    border: 1px solid #00ff41;
+}
 
-<div class="mech-demo-container">
-  <div class="section-title">Progress</div>
-  <label class="label-tech">Native Progress</label>
-  <progress class="mech-progress-native" value="50" max="100"></progress>
-</div>
+.trigger-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #000;
+}
 
-    <div class="section-title">Dialog</div>
-    <div class="mech-demo-container">
+.mech-dialog {
+    border: none;
+    padding: 0;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+    margin: auto;
+}
+
+.mech-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(3px);
+}
+
+.mech-dialog.standard {
+    width: 320px;
+    background: #f1ebd8;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.standard .dialog-header {
+    background: #222;
+    color: #d65a31;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.standard .dot {
+    width: 8px;
+    height: 8px;
+    background: #d65a31;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #d65a31;
+}
+
+.standard .dialog-body {
+    padding: 20px;
+    color: #444;
+    font-size: 14px;
+}
+
+.standard .dialog-footer {
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    border-top: 1px solid #d8d0ba;
+}
+
+.btn-flat {
+    background: transparent;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-raised {
+    background: #d65a31;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    box-shadow: 0 3px 0 #a94125;
+    cursor: pointer;
+}
+
+.mech-dialog.alert {
+    width: 300px;
+    background: #1a1a1a;
+    border: 2px solid #d65a31;
+}
+
+.alert-stripe {
+    background: #d65a31;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.alert-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #d65a31;
+    padding: 20px;
+}
+
+.warning-icon {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.btn-outline {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #d65a31;
+    color: #d65a31;
+    padding: 10px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn-outline:hover {
+    background: #d65a31;
+    color: white;
+}
+
+.mech-dialog.terminal {
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #444;
+    width: 400px;
+    box-shadow: inset 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+.terminal-container {
+    padding: 30px;
+    position: relative;
+}
+
+.lines {
+    color: #00ff41;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.blink {
+    animation: blinker 1s step-end infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.close-x {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #444;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close-x:hover {
+    color: #00ff41;
+}
+      `
+    >
       <div class="dialog-demo-container justify-center">
         <button
           onclick="document.getElementById('dialog-standard').showModal()"
@@ -309,10 +1429,123 @@ import "../styles/radio-buttons.css";
           </div>
         </dialog>
       </div>
-    </div>
+    </CassetteComponent>
 
-    <div class="section-title">Badges</div>
-    <div class="mech-demo-container">
+    <CassetteComponent
+      title="Badges"
+      html=`.
+        <div class="badge-group">
+          <label class="label-tech">System LED</label>
+          <div class="badge-led active">ONLINE</div>
+          <div class="badge-led">OFFLINE</div>
+          <div class="badge-led error">FAILURE</div>
+        </div>
+
+        <div class="badge-group">
+          <label class="label-tech">Markings</label>
+          <span class="badge-silk">REV_04</span>
+          <span class="badge-silk orange">QC_PASSED</span>
+        </div>
+
+        <div class="badge-group">
+          <label class="label-tech">Identification</label>
+          <span class="badge-tag">MODEL: KB-88</span>
+          <span class="badge-tag">S/N: 2026-X1</span>
+        </div>
+      `
+      css=`
+      .mech-badge-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 20px;
+  background: #f4f4f4;
+  width: fit-content;
+  font-family: 'Courier New', monospace;
+}
+
+.badge-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.label-tech {
+  font-size: 10px;
+  color: #999;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-right: 10px;
+  min-width: 100px;
+}
+
+.badge-led {
+  background: #222;
+  color: #444;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 12px;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+  border: 1px solid #333;
+  transition: all 0.2s;
+}
+
+.badge-led.active {
+  color: #00ff41;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.8);
+  border-color: #00ff41;
+}
+
+.badge-led.error {
+  color: #ff4b2b;
+  text-shadow: 0 0 8px rgba(255, 75, 43, 0.8);
+  border-color: #ff4b2b;
+}
+
+.badge-silk {
+  color: #666;
+  font-size: 11px;
+  font-weight: bold;
+  border: 1.5px solid #ccc;
+  padding: 2px 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.badge-silk.orange {
+  color: #d65a31;
+  border-color: #d65a31;
+}
+
+.badge-tag {
+  background: #d8d0ba;
+  color: #4a4a4a;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 2px;
+  box-shadow: 
+    1px 1px 0px #fff inset,
+    1px 1px 2px rgba(0,0,0,0.2);
+  border-left: 3px solid #999;
+  position: relative;
+}
+
+.badge-tag::after {
+  content: "";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 3px;
+  background: #999;
+  border-radius: 50%;
+  box-shadow: inset 0 1px 1px #000;
+}
+      `
+    >
       <div class="flex justify-center">
         <div class="mech-badge-panel">
           <div class="badge-group">
@@ -335,10 +1568,103 @@ import "../styles/radio-buttons.css";
           </div>
         </div>
       </div>
-    </div>
+    </CassetteComponent>
 
-    <div class="section-title">Text Area</div>
-    <div class="mech-demo-container">
+    <CassetteComponent
+      title="Text Area"
+      html=`.
+        <div class="textarea-field">
+          <label class="label-tech">System Log / Console</label>
+          <textarea
+            class="area-terminal"
+            placeholder=">> WAITING FOR INPUT..."></textarea>
+        </div>
+
+        <div class="textarea-field">
+          <label class="label-tech">Notes & Schematics</label>
+          <textarea
+            class="area-paper"
+            placeholder="Enter technical notes here..."></textarea>
+        </div>
+      `
+      css=`
+      .mech-textarea-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  width: 400px;
+  font-family: 'Courier New', monospace;
+}
+
+.textarea-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label-tech {
+  font-size: 11px;
+  font-weight: bold;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.area-terminal {
+  background-color: #1a1a1a;
+  color: #d65a31;
+  border: 1px solid #333;
+  padding: 15px;
+  font-family: inherit;
+  font-size: 14px;
+  border-radius: 4px;
+  box-shadow: inset 0 4px 10px rgba(0,0,0,0.8);
+  outline: none;
+  resize: vertical;
+  min-height: 100px;
+}
+
+.area-terminal:focus {
+  border-color: #d65a31;
+  box-shadow: inset 0 4px 10px rgba(0,0,0,0.8), 0 0 10px rgba(255, 81, 0, 0.2);
+}
+
+.area-terminal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.area-terminal::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+.area-paper {
+  background-color: #f1ebd8;
+  color: #4a4a4a;
+  border: none;
+  padding: 15px;
+  font-family: inherit;
+  font-size: 14px;
+  border-radius: 4px;
+  box-shadow: 
+    inset 0 2px 5px rgba(0,0,0,0.1),
+    0 4px 0 #d8d0ba;
+  outline: none;
+  resize: none;
+  min-height: 100px;
+  border-left: 5px solid #d65a31;
+}
+
+.area-paper:focus {
+  background-color: #f6f1e3;
+  box-shadow: 
+    inset 0 2px 5px rgba(0,0,0,0.15),
+    0 2px 0 #d8d0ba;
+  transform: translateY(2px);
+}
+      `
+    >
       <div class="grid justify-center">
         <div class="mech-textarea-stack">
           <div class="textarea-field">
@@ -356,10 +1682,145 @@ import "../styles/radio-buttons.css";
           </div>
         </div>
       </div>
-    </div>
+    </CassetteComponent>
 
-    <div class="section-title">Radio Buttons</div>
-    <div class="mech-demo-container">
+    <CassetteComponent
+      title="Radio Buttons"
+      html=`.
+        <div class="radio-group">
+          <label class="label-tech">Output Mode</label>
+          <div class="radio-pads">
+            <label class="pad-item">
+              <input type="radio" name="mode" checked />
+              <span class="pad-surface">AUX</span>
+            </label>
+            <label class="pad-item">
+              <input type="radio" name="mode" />
+              <span class="pad-surface">TAPE</span>
+            </label>
+            <label class="pad-item">
+              <input type="radio" name="mode" />
+              <span class="pad-surface">PHONO</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="radio-group">
+          <label class="label-tech">System Sync</label>
+          <div class="radio-leds">
+            <label class="led-item">
+              <input type="radio" name="sync" checked />
+              <span class="led-indicator"></span>
+              <span class="led-text">INTERNAL</span>
+            </label>
+            <label class="led-item">
+              <input type="radio" name="sync" />
+              <span class="led-indicator"></span>
+              <span class="led-text">EXTERNAL</span>
+            </label>
+          </div>
+        </div>
+      `
+      css=`
+      .mech-radio-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 20px;
+  font-family: 'Courier New', monospace;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label-tech {
+  font-size: 11px;
+  font-weight: bold;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.radio-pads {
+  display: flex;
+  gap: 10px;
+}
+
+.pad-item input {
+  display: none;
+}
+
+.pad-surface {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 45px;
+  background: #f1ebd8;
+  color: #4a4a4a;
+  font-weight: bold;
+  font-size: 11px;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #d8d0ba, 0 5px 10px rgba(0,0,0,0.1);
+  transition: all 0.1s;
+}
+
+.pad-item input:checked + .pad-surface {
+  background: #d65a31;
+  color: #fff;
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #a94125;
+}
+
+.radio-leds {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.led-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.led-item input {
+  display: none;
+}
+
+.led-indicator {
+  width: 12px;
+  height: 12px;
+  background: #222;
+  border-radius: 50%;
+  border: 2px solid #444;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+  transition: all 0.2s;
+  position: relative;
+}
+
+.led-text {
+  font-size: 13px;
+  font-weight: bold;
+  color: #666;
+}
+
+.led-item input:checked + .led-indicator {
+  background: #00ff41;
+  border-color: #00ff41;
+  box-shadow: 0 0 10px rgba(0, 255, 65, 0.6), inset 0 0 4px #fff;
+}
+
+.led-item input:checked ~ .led-text {
+  color: #222;
+}
+      `
+    >
       <div class="flex justify-center">
         <div class="mech-radio-stack">
           <div class="radio-group">
@@ -397,7 +1858,7 @@ import "../styles/radio-buttons.css";
           </div>
         </div>
       </div>
-    </div>
+    </CassetteComponent>
   </div>
 
   <script src="/src/js/CodeBlock.js"></script>
