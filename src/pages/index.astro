@@ -24,9 +24,9 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
 
   <div class="page-content max-w-6xl mx-auto px-4">
     <!-- Buttons -->
-      <CassetteComponent
-        title="Buttons"
-        html=`.
+    <CassetteComponent
+      title="Buttons"
+      html=`.
         <button class="keycap keycap-cream">ESC</button>
 
         <button class="keycap keycap-grey">ENTER</button>
@@ -34,7 +34,7 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
         <button class="keycap keycap-orange">SHIFT</button>
           
       `
-        css=`
+      css=`
       .buttons-container {
   display: flex;
   gap: 20px;
@@ -142,19 +142,19 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
 
 
       `
-      >
-        <div class="buttons-container justify-center">
-          <button class="keycap keycap-cream">ESC</button>
+    >
+      <div class="buttons-container justify-center">
+        <button class="keycap keycap-cream">ESC</button>
 
-          <button class="keycap keycap-grey">ENTER</button>
+        <button class="keycap keycap-grey">ENTER</button>
 
-          <button class="keycap keycap-orange">SHIFT</button>
-        </div>
-      </CassetteComponent>
+        <button class="keycap keycap-orange">SHIFT</button>
+      </div>
+    </CassetteComponent>
 
-      <CassetteComponent
-        title="Check Boxes"
-        html=`.
+    <CassetteComponent
+      title="Check Boxes"
+      html=`.
         <div class="switch-field">
           <label>Keycap Toggle</label>
           <label class="mech-key-check">
@@ -181,7 +181,7 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
           </label>
         </div>
       `
-        css=`
+      css=`
       .mech-switch-stack {
   display: flex;
   gap: 30px;
@@ -295,39 +295,39 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
   box-shadow: 0 0 10px #d65a31;
 }
       `
-      >
-        <div class="mech-switch-stack justify-center">
-          <div class="switch-field">
-            <label>Keycap Toggle</label>
-            <label class="mech-key-check">
-              <input type="checkbox" />
-              <span class="key-surface"></span>
-            </label>
-          </div>
-
-          <div class="switch-field">
-            <label>Industrial Slider</label>
-            <label class="mech-slider">
-              <input type="checkbox" />
-              <span class="slider-track">
-                <span class="slider-knob"></span>
-              </span>
-            </label>
-          </div>
-
-          <div class="switch-field">
-            <label>Status LED</label>
-            <label class="mech-led-btn">
-              <input type="checkbox" />
-              <span class="led-body"></span>
-            </label>
-          </div>
+    >
+      <div class="mech-switch-stack justify-center">
+        <div class="switch-field">
+          <label>Keycap Toggle</label>
+          <label class="mech-key-check">
+            <input type="checkbox" />
+            <span class="key-surface"></span>
+          </label>
         </div>
-      </CassetteComponent>
 
-      <CassetteComponent
-        title="Selects"
-        html=`.
+        <div class="switch-field">
+          <label>Industrial Slider</label>
+          <label class="mech-slider">
+            <input type="checkbox" />
+            <span class="slider-track">
+              <span class="slider-knob"></span>
+            </span>
+          </label>
+        </div>
+
+        <div class="switch-field">
+          <label>Status LED</label>
+          <label class="mech-led-btn">
+            <input type="checkbox" />
+            <span class="led-body"></span>
+          </label>
+        </div>
+      </div>
+    </CassetteComponent>
+
+    <CassetteComponent
+      title="Selects"
+      html=`.
         <div class="select-field">
           <label class="label-tech">Layout Profile</label>
           <div class="select-wrapper key-style">
@@ -350,7 +350,7 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
           </div>
         </div>
       `
-        css=`
+      css=`
       .mech-select-stack {
   display: flex;
   flex-direction: column;
@@ -431,37 +431,37 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
   color: #f1ebd8;
 }
       `
-      >
-        <div class="justify-center grid">
-          <div class="mech-select-stack">
-            <div class="select-field">
-              <label class="label-tech">Layout Profile</label>
-              <div class="select-wrapper key-style">
-                <select>
-                  <option>ANSI-US</option>
-                  <option>ISO-UK</option>
-                  <option>JIS-JP</option>
-                </select>
-              </div>
+    >
+      <div class="justify-center grid">
+        <div class="mech-select-stack">
+          <div class="select-field">
+            <label class="label-tech">Layout Profile</label>
+            <div class="select-wrapper key-style">
+              <select>
+                <option>ANSI-US</option>
+                <option>ISO-UK</option>
+                <option>JIS-JP</option>
+              </select>
             </div>
+          </div>
 
-            <div class="select-field">
-              <label class="label-tech">System Mode</label>
-              <div class="select-wrapper display-style">
-                <select>
-                  <option>DEFAULT</option>
-                  <option>OVERCLOCK</option>
-                  <option>SLEEP_MODE</option>
-                </select>
-              </div>
+          <div class="select-field">
+            <label class="label-tech">System Mode</label>
+            <div class="select-wrapper display-style">
+              <select>
+                <option>DEFAULT</option>
+                <option>OVERCLOCK</option>
+                <option>SLEEP_MODE</option>
+              </select>
             </div>
           </div>
         </div>
-      </CassetteComponent>
+      </div>
+    </CassetteComponent>
 
-      <CassetteComponent
-        title="Inputs"
-        html=`.
+    <CassetteComponent
+      title="Inputs"
+      html=`.
         <div class="input-field">
           <label>Keycap Style</label>
           <input type="text" class="input-keycap" placeholder="SEARCH..." />
@@ -487,7 +487,7 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
           />
         </div>
       `
-        css=`
+      css=`
       .mech-input-stack {
   display: flex;
   flex-direction: column;
@@ -570,40 +570,40 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
   border-left-width: 10px;
 }
       `
-      >
-        <div class="justify-center grid">
-          <div class="mech-input-stack">
-            <div class="input-field">
-              <label>Keycap Style</label>
-              <input type="text" class="input-keycap" placeholder="SEARCH..." />
-            </div>
+    >
+      <div class="justify-center grid">
+        <div class="mech-input-stack">
+          <div class="input-field">
+            <label>Keycap Style</label>
+            <input type="text" class="input-keycap" placeholder="SEARCH..." />
+          </div>
 
-            <div class="input-field">
-              <label>Digital Status</label>
-              <div class="display-frame">
-                <input
-                  type="text"
-                  class="input-display"
-                  placeholder="SYSTEM READY_"
-                />
-              </div>
-            </div>
-
-            <div class="input-field">
-              <label>Industrial Slot</label>
+          <div class="input-field">
+            <label>Digital Status</label>
+            <div class="display-frame">
               <input
                 type="text"
-                class="input-slot"
-                placeholder="ENTER COMMAND..."
+                class="input-display"
+                placeholder="SYSTEM READY_"
               />
             </div>
           </div>
-        </div>
-      </CassetteComponent>
 
-      <CassetteComponent
-        title="Cards"
-        html=`.
+          <div class="input-field">
+            <label>Industrial Slot</label>
+            <input
+              type="text"
+              class="input-slot"
+              placeholder="ENTER COMMAND..."
+            />
+          </div>
+        </div>
+      </div>
+    </CassetteComponent>
+
+    <CassetteComponent
+      title="Cards"
+      html=`.
         <div class="mech-card status-card active">
           <div class="mech-card-header">System Status</div>
           <div class="mech-card-title">Main Console</div>
@@ -661,7 +661,7 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
           </div>
         </div>
       `
-        css=`
+      css=`
       .cards-container {
   display: flex;
   gap: 20px;
@@ -856,70 +856,70 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
   background-color: #fff;
 }
       `
-      >
-        <div class="cards-container justify-center">
-          <div class="mech-card status-card active">
-            <div class="mech-card-header">System Status</div>
-            <div class="mech-card-title">Main Console</div>
-            <div class="mech-card-body">
-              All systems operational. Network connection stable.
-            </div>
-            <div class="mech-card-footer">
-              <span class="status-indicator">
-                <span class="status-dot online"></span>
-                ONLINE
-              </span>
-            </div>
+    >
+      <div class="cards-container justify-center">
+        <div class="mech-card status-card active">
+          <div class="mech-card-header">System Status</div>
+          <div class="mech-card-title">Main Console</div>
+          <div class="mech-card-body">
+            All systems operational. Network connection stable.
           </div>
-
-          <div class="mech-card data-card">
-            <div class="mech-card-header">Data Readout</div>
-            <div class="mech-card-title">Telemetry</div>
-            <div class="data-row">
-              <span class="data-label">Frequency</span>
-              <span class="data-value highlight">98.7 MHz</span>
-            </div>
-            <div class="data-row">
-              <span class="data-label">Signal</span>
-              <span class="data-value">Strong</span>
-            </div>
-            <div class="data-row">
-              <span class="data-label">Temp</span>
-              <span class="data-value">24°C</span>
-            </div>
-          </div>
-
-          <div class="mech-card control-card">
-            <div class="mech-card-header">Controls</div>
-            <div class="mech-card-title">Settings</div>
-            <div class="control-row">
-              <span class="control-label">Power</span>
-              <label class="mini-switch">
-                <input type="checkbox" checked />
-                <span class="mini-track"><span class="mini-knob"></span></span>
-              </label>
-            </div>
-            <div class="control-row">
-              <span class="control-label">Audio</span>
-              <label class="mini-switch">
-                <input type="checkbox" />
-                <span class="mini-track"><span class="mini-knob"></span></span>
-              </label>
-            </div>
-            <div class="control-row">
-              <span class="control-label">Radio</span>
-              <label class="mini-switch">
-                <input type="checkbox" checked />
-                <span class="mini-track"><span class="mini-knob"></span></span>
-              </label>
-            </div>
+          <div class="mech-card-footer">
+            <span class="status-indicator">
+              <span class="status-dot online"></span>
+              ONLINE
+            </span>
           </div>
         </div>
-      </CassetteComponent>
 
-      <CassetteComponent
-        title="Tables"
-        html=`.
+        <div class="mech-card data-card">
+          <div class="mech-card-header">Data Readout</div>
+          <div class="mech-card-title">Telemetry</div>
+          <div class="data-row">
+            <span class="data-label">Frequency</span>
+            <span class="data-value highlight">98.7 MHz</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Signal</span>
+            <span class="data-value">Strong</span>
+          </div>
+          <div class="data-row">
+            <span class="data-label">Temp</span>
+            <span class="data-value">24°C</span>
+          </div>
+        </div>
+
+        <div class="mech-card control-card">
+          <div class="mech-card-header">Controls</div>
+          <div class="mech-card-title">Settings</div>
+          <div class="control-row">
+            <span class="control-label">Power</span>
+            <label class="mini-switch">
+              <input type="checkbox" checked />
+              <span class="mini-track"><span class="mini-knob"></span></span>
+            </label>
+          </div>
+          <div class="control-row">
+            <span class="control-label">Audio</span>
+            <label class="mini-switch">
+              <input type="checkbox" />
+              <span class="mini-track"><span class="mini-knob"></span></span>
+            </label>
+          </div>
+          <div class="control-row">
+            <span class="control-label">Radio</span>
+            <label class="mini-switch">
+              <input type="checkbox" checked />
+              <span class="mini-track"><span class="mini-knob"></span></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </CassetteComponent>
+
+    <CassetteComponent
+      title="Tables"
+      html=`.
         <div class="table-wrapper">
           <label class="label-tech">System Status Log</label>
           <table class="mech-table-dark">
@@ -970,7 +970,7 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
           </table>
         </div>
       `
-        css=`
+      css=`
       .mech-tables-container {
   display: flex;
   flex-direction: column;
@@ -1072,67 +1072,67 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
   color: #d65a31;
 }
       `
-      >
-        <div class="mech-tables-container">
-          <div class="table-wrapper">
-            <label class="label-tech">System Status Log</label>
-            <table class="mech-table-dark">
-              <thead>
-                <tr>
-                  <th>Module</th>
-                  <th>Status</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Processor</td>
-                  <td><span class="status-led"></span> Active</td>
-                  <td>0.85ms</td>
-                </tr>
-                <tr>
-                  <td>Backlight</td>
-                  <td><span class="status-led orange"></span> Warning</td>
-                  <td>40%</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="table-wrapper">
-            <label class="label-tech">Parts Inventory</label>
-            <table class="mech-table-light">
-              <thead>
-                <tr>
-                  <th>Part No.</th>
-                  <th>Color</th>
-                  <th>Stock</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="key-cell">K-75-C</td>
-                  <td>Cream</td>
-                  <td>120</td>
-                </tr>
-                <tr>
-                  <td class="key-cell orange">K-75-O</td>
-                  <td>Orange</td>
-                  <td>14</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+    >
+      <div class="mech-tables-container">
+        <div class="table-wrapper">
+          <label class="label-tech">System Status Log</label>
+          <table class="mech-table-dark">
+            <thead>
+              <tr>
+                <th>Module</th>
+                <th>Status</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Processor</td>
+                <td><span class="status-led"></span> Active</td>
+                <td>0.85ms</td>
+              </tr>
+              <tr>
+                <td>Backlight</td>
+                <td><span class="status-led orange"></span> Warning</td>
+                <td>40%</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </CassetteComponent>
 
-      <CassetteComponent
-        title="Progress"
-        html=`.
+        <div class="table-wrapper">
+          <label class="label-tech">Parts Inventory</label>
+          <table class="mech-table-light">
+            <thead>
+              <tr>
+                <th>Part No.</th>
+                <th>Color</th>
+                <th>Stock</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="key-cell">K-75-C</td>
+                <td>Cream</td>
+                <td>120</td>
+              </tr>
+              <tr>
+                <td class="key-cell orange">K-75-O</td>
+                <td>Orange</td>
+                <td>14</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </CassetteComponent>
+
+    <CassetteComponent
+      title="Progress"
+      html=`.
         <label class="label-tech">Native Progress</label>
         <progress class="mech-progress-native" value="50" max="100"></progress>
       `
-        css=`
+      css=`
       .mech-progress-native {
   -webkit-appearance: none;
   appearance: none;
@@ -1158,14 +1158,16 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
   border-radius: 3px;
 }
       `
-      >
-        <label class="label-tech">Native Progress</label>
-        <progress class="mech-progress-native" value="50" max="100"></progress>
-      </CassetteComponent>
+    >
+    <div>
+      <label class="label-tech">Native Progress</label>
+      <progress class="mech-progress-native" value="50" max="100"></progress>
+    </div>
+    </CassetteComponent>
 
-      <CassetteComponent
-        title="Dialog"
-        html=`.
+    <CassetteComponent
+      title="Dialog"
+      html=`.
         <button onclick="document.getElementById('dialog-standard').showModal()" class="keycap keycap-cream">Standard Dialog</button>
         <button onclick="document.getElementById('dialog-error').showModal()" class="trigger-btn error">Error Dialog</button>
         <button onclick="document.getElementById('dialog-terminal').showModal()" class="trigger-btn terminal">Terminal HUD</button>
@@ -1174,7 +1176,7 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
         <dialog id="dialog-error" class="mech-dialog alert">...</dialog>
         <dialog id="dialog-terminal" class="mech-dialog terminal">...</dialog>
       `
-        css=`
+      css=`
       .dialog-demo-container {
     display: flex;
     gap: 15px;
@@ -1367,71 +1369,71 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
     color: #00ff41;
 }
       `
-      >
-        <div class="dialog-demo-container justify-center">
-          <button
-            onclick="document.getElementById('dialog-standard').showModal()"
-            class="keycap keycap-cream">Standard Dialog</button
-          >
+    >
+      <div class="dialog-demo-container justify-center">
+        <button
+          onclick="document.getElementById('dialog-standard').showModal()"
+          class="keycap keycap-cream">Standard Dialog</button
+        >
 
-          <button
-            onclick="document.getElementById('dialog-error').showModal()"
-            class="trigger-btn error">Error Dialog</button
-          >
+        <button
+          onclick="document.getElementById('dialog-error').showModal()"
+          class="trigger-btn error">Error Dialog</button
+        >
 
-          <button
-            onclick="document.getElementById('dialog-terminal').showModal()"
-            class="trigger-btn terminal">Terminal HUD</button
-          >
+        <button
+          onclick="document.getElementById('dialog-terminal').showModal()"
+          class="trigger-btn terminal">Terminal HUD</button
+        >
 
-          <dialog id="dialog-standard" class="mech-dialog standard">
-            <div class="dialog-header">
-              <span class="dot"></span>
-              <span class="header-text">System Configuration</span>
+        <dialog id="dialog-standard" class="mech-dialog standard">
+          <div class="dialog-header">
+            <span class="dot"></span>
+            <span class="header-text">System Configuration</span>
+          </div>
+          <div class="dialog-body">
+            <p>
+              Adjusting the key debounce rate might affect response times.
+              Proceed with the update?
+            </p>
+          </div>
+          <form method="dialog" class="dialog-footer">
+            <button class="btn-flat">ABORT</button>
+            <button class="btn-raised">CONFIRM</button>
+          </form>
+        </dialog>
+
+        <dialog id="dialog-error" class="mech-dialog alert">
+          <div class="alert-stripe">CRITICAL FAILURE</div>
+          <div class="dialog-body">
+            <div class="alert-content">
+              <span class="warning-icon">!</span>
+              <p>Switch interference detected in Block-C. Connection lost.</p>
             </div>
-            <div class="dialog-body">
-              <p>
-                Adjusting the key debounce rate might affect response times.
-                Proceed with the update?
-              </p>
+          </div>
+          <form method="dialog" class="dialog-footer">
+            <button class="btn-outline">REBOOT SYSTEM</button>
+          </form>
+        </dialog>
+
+        <dialog id="dialog-terminal" class="mech-dialog terminal">
+          <div class="terminal-container">
+            <div class="lines">
+              <p>> INITIALIZING_CORE...</p>
+              <p>> SYNCING_LED_DRIVERS... [DONE]</p>
+              <p class="blink">> READY_FOR_COMMAND_</p>
             </div>
-            <form method="dialog" class="dialog-footer">
-              <button class="btn-flat">ABORT</button>
-              <button class="btn-raised">CONFIRM</button>
+            <form method="dialog">
+              <button class="close-x">×</button>
             </form>
-          </dialog>
+          </div>
+        </dialog>
+      </div>
+    </CassetteComponent>
 
-          <dialog id="dialog-error" class="mech-dialog alert">
-            <div class="alert-stripe">CRITICAL FAILURE</div>
-            <div class="dialog-body">
-              <div class="alert-content">
-                <span class="warning-icon">!</span>
-                <p>Switch interference detected in Block-C. Connection lost.</p>
-              </div>
-            </div>
-            <form method="dialog" class="dialog-footer">
-              <button class="btn-outline">REBOOT SYSTEM</button>
-            </form>
-          </dialog>
-
-          <dialog id="dialog-terminal" class="mech-dialog terminal">
-            <div class="terminal-container">
-              <div class="lines">
-                <p>> INITIALIZING_CORE...</p>
-                <p>> SYNCING_LED_DRIVERS... [DONE]</p>
-                <p class="blink">> READY_FOR_COMMAND_</p>
-              </div>
-              <form method="dialog">
-                <button class="close-x">×</button>
-              </form>
-            </div>
-          </dialog>
-        </div>
-      </CassetteComponent>
-
-      <CassetteComponent
-        title="Badges"
-        html=`.
+    <CassetteComponent
+      title="Badges"
+      html=`.
         <div class="badge-group">
           <label class="label-tech">System LED</label>
           <div class="badge-led active">ONLINE</div>
@@ -1451,7 +1453,7 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
           <span class="badge-tag">S/N: 2026-X1</span>
         </div>
       `
-        css=`
+      css=`
       .mech-badge-panel {
   display: flex;
   flex-direction: column;
@@ -1543,34 +1545,34 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
   box-shadow: inset 0 1px 1px #000;
 }
       `
-      >
-        <div class="flex justify-center">
-          <div class="mech-badge-panel">
-            <div class="badge-group">
-              <label class="label-tech">System LED</label>
-              <div class="badge-led active">ONLINE</div>
-              <div class="badge-led">OFFLINE</div>
-              <div class="badge-led error">FAILURE</div>
-            </div>
+    >
+      <div class="flex justify-center">
+        <div class="mech-badge-panel">
+          <div class="badge-group">
+            <label class="label-tech">System LED</label>
+            <div class="badge-led active">ONLINE</div>
+            <div class="badge-led">OFFLINE</div>
+            <div class="badge-led error">FAILURE</div>
+          </div>
 
-            <div class="badge-group">
-              <label class="label-tech">Markings</label>
-              <span class="badge-silk">REV_04</span>
-              <span class="badge-silk orange">QC_PASSED</span>
-            </div>
+          <div class="badge-group">
+            <label class="label-tech">Markings</label>
+            <span class="badge-silk">REV_04</span>
+            <span class="badge-silk orange">QC_PASSED</span>
+          </div>
 
-            <div class="badge-group">
-              <label class="label-tech">Identification</label>
-              <span class="badge-tag">MODEL: KB-88</span>
-              <span class="badge-tag">S/N: 2026-X1</span>
-            </div>
+          <div class="badge-group">
+            <label class="label-tech">Identification</label>
+            <span class="badge-tag">MODEL: KB-88</span>
+            <span class="badge-tag">S/N: 2026-X1</span>
           </div>
         </div>
-      </CassetteComponent>
+      </div>
+    </CassetteComponent>
 
-      <CassetteComponent
-        title="Text Area"
-        html=`.
+    <CassetteComponent
+      title="Text Area"
+      html=`.
         <div class="textarea-field">
           <label class="label-tech">System Log / Console</label>
           <textarea
@@ -1585,7 +1587,7 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
             placeholder="Enter technical notes here..."></textarea>
         </div>
       `
-        css=`
+      css=`
       .mech-textarea-stack {
   display: flex;
   flex-direction: column;
@@ -1662,29 +1664,29 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
   transform: translateY(2px);
 }
       `
-      >
-        <div class="grid justify-center">
-          <div class="mech-textarea-stack">
-            <div class="textarea-field">
-              <label class="label-tech">System Log / Console</label>
-              <textarea
-                class="area-terminal"
-                placeholder=">> WAITING FOR INPUT..."></textarea>
-            </div>
+    >
+      <div class="grid justify-center">
+        <div class="mech-textarea-stack">
+          <div class="textarea-field">
+            <label class="label-tech">System Log / Console</label>
+            <textarea
+              class="area-terminal"
+              placeholder=">> WAITING FOR INPUT..."></textarea>
+          </div>
 
-            <div class="textarea-field">
-              <label class="label-tech">Notes & Schematics</label>
-              <textarea
-                class="area-paper"
-                placeholder="Enter technical notes here..."></textarea>
-            </div>
+          <div class="textarea-field">
+            <label class="label-tech">Notes & Schematics</label>
+            <textarea
+              class="area-paper"
+              placeholder="Enter technical notes here..."></textarea>
           </div>
         </div>
-      </CassetteComponent>
+      </div>
+    </CassetteComponent>
 
-      <CassetteComponent
-        title="Radio Buttons"
-        html=`.
+    <CassetteComponent
+      title="Radio Buttons"
+      html=`.
         <div class="radio-group">
           <label class="label-tech">Output Mode</label>
           <div class="radio-pads">
@@ -1719,7 +1721,7 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
           </div>
         </div>
       `
-        css=`
+      css=`
       .mech-radio-stack {
   display: flex;
   flex-direction: column;
@@ -1818,45 +1820,45 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
   color: #222;
 }
       `
-      >
-        <div class="flex justify-center">
-          <div class="mech-radio-stack">
-            <div class="radio-group">
-              <label class="label-tech">Output Mode</label>
-              <div class="radio-pads">
-                <label class="pad-item">
-                  <input type="radio" name="mode" checked />
-                  <span class="pad-surface">AUX</span>
-                </label>
-                <label class="pad-item">
-                  <input type="radio" name="mode" />
-                  <span class="pad-surface">TAPE</span>
-                </label>
-                <label class="pad-item">
-                  <input type="radio" name="mode" />
-                  <span class="pad-surface">PHONO</span>
-                </label>
-              </div>
+    >
+      <div class="flex justify-center">
+        <div class="mech-radio-stack">
+          <div class="radio-group">
+            <label class="label-tech">Output Mode</label>
+            <div class="radio-pads">
+              <label class="pad-item">
+                <input type="radio" name="mode" checked />
+                <span class="pad-surface">AUX</span>
+              </label>
+              <label class="pad-item">
+                <input type="radio" name="mode" />
+                <span class="pad-surface">TAPE</span>
+              </label>
+              <label class="pad-item">
+                <input type="radio" name="mode" />
+                <span class="pad-surface">PHONO</span>
+              </label>
             </div>
+          </div>
 
-            <div class="radio-group">
-              <label class="label-tech">System Sync</label>
-              <div class="radio-leds">
-                <label class="led-item">
-                  <input type="radio" name="sync" checked />
-                  <span class="led-indicator"></span>
-                  <span class="led-text">INTERNAL</span>
-                </label>
-                <label class="led-item">
-                  <input type="radio" name="sync" />
-                  <span class="led-indicator"></span>
-                  <span class="led-text">EXTERNAL</span>
-                </label>
-              </div>
+          <div class="radio-group">
+            <label class="label-tech">System Sync</label>
+            <div class="radio-leds">
+              <label class="led-item">
+                <input type="radio" name="sync" checked />
+                <span class="led-indicator"></span>
+                <span class="led-text">INTERNAL</span>
+              </label>
+              <label class="led-item">
+                <input type="radio" name="sync" />
+                <span class="led-indicator"></span>
+                <span class="led-text">EXTERNAL</span>
+              </label>
             </div>
           </div>
         </div>
-      </CassetteComponent>
+      </div>
+    </CassetteComponent>
   </div>
 
   <script src="/src/js/CodeBlock.js"></script>
