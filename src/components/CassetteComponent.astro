@@ -3,7 +3,7 @@ const { title, css, html } = Astro.props;
 import { Code } from "astro:components";
 ---
 
-<section class="w-330 justify-center grid cassette-component">
+<section class="w-330 justify-center grid cassette-component component-group">
     <h1 class="component-group-title">{title}</h1>
 
     <section class="flex gap-5 justify-center">
@@ -65,11 +65,3 @@ import { Code } from "astro:components";
         });
     });
 </script>
-
-<div id="html-block">
-    <Code lang="html" theme="dark-plus" code={html} />
-</div>
-
-<div id="css-block">
-    <Code lang="css" theme="dark-plus" code={css} />
-</div>

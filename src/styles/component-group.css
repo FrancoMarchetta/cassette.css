@@ -1,4 +1,4 @@
-.component-group-wrapper {
+.component-group {
   background-color: #2a2a2a;
   border-radius: 8px;
   padding: 24px;
@@ -12,7 +12,7 @@
   overflow: hidden;
 }
 
-.component-group-wrapper::before {
+.component-group::before {
   content: "";
   position: absolute;
   top: 0;
@@ -22,7 +22,7 @@
   background: linear-gradient(90deg, transparent, rgba(214, 90, 49, 0.3), transparent);
 }
 
-.component-group-wrapper::after {
+.component-group::after {
   content: "";
   position: absolute;
   bottom: 0;
