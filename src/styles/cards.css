@@ -1,0 +1,199 @@
+/* === Cards Container === */
+.cards-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+/* === Card Base === */
+.mech-card {
+  background-color: #2a2a2a;
+  border-radius: 8px;
+  padding: 20px;
+  width: 280px;
+  box-shadow:
+    inset 0 2px 4px rgba(255,255,255,0.05),
+    0 4px 0 #111,
+    0 6px 15px rgba(0,0,0,0.4);
+  border-left: 4px solid #d65a31;
+}
+
+.mech-card-header {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: bold;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #333;
+}
+
+.mech-card-title {
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  font-weight: bold;
+  color: #f1ebd8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.mech-card-body {
+  font-family: 'Courier New', monospace;
+  font-size: 12px;
+  color: #888;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.mech-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #333;
+}
+
+/* === Card 1: Status Panel === */
+.status-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.status-card::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  background: #555;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.status-card.active::before {
+  background: #d65a31;
+  box-shadow: 0 0 10px #d65a31, 0 0 20px rgba(214,90,49,0.5);
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Courier New', monospace;
+  font-size: 10px;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #555;
+}
+
+.status-dot.online {
+  background: #d65a31;
+  box-shadow: 0 0 6px #d65a31;
+}
+
+/* === Card 2: Data Display === */
+.data-card {
+  border-left-color: #f1ebd8;
+}
+
+.data-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #333;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+}
+
+.data-label {
+  color: #666;
+  text-transform: uppercase;
+}
+
+.data-value {
+  color: #f1ebd8;
+  font-weight: bold;
+}
+
+.data-value.highlight {
+  color: #d65a31;
+}
+
+/* === Card 3: Control Panel === */
+.control-card {
+  border-left-color: #4a4a4a;
+}
+
+.control-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #333;
+}
+
+.control-label {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #888;
+  text-transform: uppercase;
+}
+
+/* Mini switch for control card */
+.mini-switch {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.mini-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.mini-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #222;
+  border-radius: 2px;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.7);
+  transition: 0.2s;
+}
+
+.mini-knob {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  left: 3px;
+  top: 3px;
+  background-color: #f1ebd8;
+  border-radius: 1px;
+  transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 0 #d8d0ba;
+}
+
+.mini-switch input:checked + .mini-track {
+  background-color: #d65a31;
+}
+
+.mini-switch input:checked + .mini-track .mini-knob {
+  transform: translateX(16px);
+  background-color: #fff;
+}

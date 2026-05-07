@@ -1,0 +1,194 @@
+/* --- UI Triggers --- */
+.dialog-demo-container {
+    display: flex;
+    gap: 15px;
+    padding: 40px;
+    font-family: 'Courier New', monospace;
+}
+
+.trigger-btn {
+    padding: 12px 20px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-family: inherit;
+    font-weight: bold;
+    background: #f1ebd8;
+    box-shadow: 0 4px 0 #d8d0ba;
+}
+
+.trigger-btn.error {
+    background: #d65a31;
+    color: #fff;
+    box-shadow: 0 4px 0 #a94125;
+}
+
+.trigger-btn.terminal {
+    background: #222;
+    color: #00ff41;
+    box-shadow: 0 4px 0 #000;
+    border: 1px solid #00ff41;
+}
+
+.trigger-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #000;
+}
+
+/* --- Base Dialog --- */
+.mech-dialog {
+    border: none;
+    padding: 0;
+    border-radius: 8px;
+    font-family: 'Courier New', monospace;
+}
+
+.mech-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(3px);
+}
+
+/* --- 1. Standard Style --- */
+.mech-dialog.standard {
+    width: 320px;
+    background: #f1ebd8;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.standard .dialog-header {
+    background: #222;
+    color: #d65a31;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.standard .dot {
+    width: 8px;
+    height: 8px;
+    background: #d65a31;
+    border-radius: 50%;
+    box-shadow: 0 0 5px #d65a31;
+}
+
+.standard .dialog-body {
+    padding: 20px;
+    color: #444;
+    font-size: 14px;
+}
+
+.standard .dialog-footer {
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    border-top: 1px solid #d8d0ba;
+}
+
+.btn-flat {
+    background: transparent;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-raised {
+    background: #d65a31;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    box-shadow: 0 3px 0 #a94125;
+    cursor: pointer;
+}
+
+.mech-dialog.alert {
+    width: 300px;
+    background: #1a1a1a;
+    border: 2px solid #d65a31;
+}
+
+.alert-stripe {
+    background: #d65a31;
+    color: white;
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 4px;
+}
+
+.alert-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #d65a31;
+    padding: 20px;
+}
+
+.warning-icon {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.btn-outline {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #d65a31;
+    color: #d65a31;
+    padding: 10px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.btn-outline:hover {
+    background: #d65a31;
+    color: white;
+}
+
+/* --- 3. Terminal Style --- */
+.mech-dialog.terminal {
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #444;
+    width: 400px;
+    box-shadow: inset 0 0 20px rgba(0, 255, 65, 0.1);
+}
+
+.terminal-container {
+    padding: 30px;
+    position: relative;
+}
+
+.lines {
+    color: #00ff41;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.blink {
+    animation: blinker 1s step-end infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.close-x {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #444;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close-x:hover {
+    color: #00ff41;
+}

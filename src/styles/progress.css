@@ -1,0 +1,28 @@
+.mech-progress-native {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 16px;
+  border: none;
+}
+
+/* El fondo (riel) */
+.mech-progress-native::-webkit-progress-bar {
+  background-color: #1a1a1a;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 5px #000;
+}
+
+/* La barra (progreso) */
+.mech-progress-native::-webkit-progress-value {
+  background-color: #d65a31;
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(214, 90, 49, 0.5);
+}
+
+/* Firefox */
+.mech-progress-native::-moz-progress-bar {
+  background-color: #d65a31;
+  border-radius: 3px;
+}
+

@@ -3,126 +3,402 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import CassetteComponent from "../components/CassetteComponent.astro";
 import "../styles/Buttons.css";
+import "../styles/check-box.css";
+import "../styles/selects.css";
+import "../styles/inputs.css";
+import "../styles/cards.css";
+import "../styles/tables.css";
+import "../styles/progress.css";
+import "../styles/dialog.css";
+import "../styles/badges.css";
+import "../styles/text-area.css";
+import "../styles/radio-buttons.css";
 ---
 
 <Layout>
-	<Header />
-	<section class="grid justify-center gap-10 mt-5">
-		<CassetteComponent
-			title="Button"
-			html=` _
-			<button class="keycap keycap-cream">ESC</button>
-			<button class="keycap keycap-grey">ENTER</button>
-			<button class="keycap keycap-orange">SHIFT</button>
-			`
-			css=`.keycap {
-  position: relative;
-  display: inline-block;
-  padding: 15px 20px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  border: none;
-  border-radius: 12px; /* Bordes muy redondeados */
-  cursor: pointer;
-  transition: all 0.1s ease;
-  
-  /* Efecto de sombra 3D (el cuerpo de la tecla) */
-  box-shadow: 
-    0 8px 0 rgba(0,0,0,0.2),         /* Grosor principal de la tecla */
-    0 10px 15px rgba(0,0,0,0.3),      /* Sombra proyectada en la base */
-    inset 0 1px 1px rgba(255,255,255,0.3); /* Brillo superior interno */
-}
+  <div class="mb-8">
+    <Header />
+  </div>
 
-/* Efecto de superficie cóncava/esférica (el "analógico") */
-.keycap::before {
-  content: "";
-  position: absolute;
-  top: 5px; right: 5px; bottom: 5px; left: 5px;
-  border-radius: 9px;
-  /* Degradado radial sutil para simular la curvatura */
-  background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.1) 100%);
-  z-index: -1;
-}
+  <div class="page-content max-w-6xl mx-auto px-4">
+<!-- Buttons -->
+<div class="mech-demo-container">
+  <div class="section-title">Buttons</div>
+  <div class="buttons-container justify-center">
+    <button class="keycap keycap-cream">ESC</button>
 
-/* Variación Crema */
-.keycap-cream {
-  background-color: #f1ebd8;
-  color: #555;
-  box-shadow: 
-    0 8px 0 #d8d0ba,                 /* Lado crema más oscuro */
-    0 10px 15px rgba(0,0,0,0.2), 
-    inset 0 1px 1px rgba(255,255,255,0.6);
-}
+    <button class="keycap keycap-grey">ENTER</button>
 
-/* Variación Gris (Gris Oscuro) */
-.keycap-grey {
-  background-color: #4a4a4a;
-  color: #fff;
-  box-shadow: 
-    0 8px 0 #333,                    /* Lado gris más oscuro */
-    0 10px 15px rgba(0,0,0,0.3), 
-    inset 0 1px 1px rgba(255,255,255,0.1);
-}
+    <button class="keycap keycap-orange">SHIFT</button>
+  </div>
+</div>
 
-/* Variación Naranja */
-.keycap-orange {
-  background-color: #d65a31;
-  color: #fff;
-  box-shadow: 
-    0 8px 0 #a94125,                 /* Lado naranja más oscuro */
-    0 10px 15px rgba(0,0,0,0.3), 
-    inset 0 1px 1px rgba(255,255,255,0.2);
-}
+<div class="mech-demo-container">
+  <div class="section-title">Check Boxes</div>
+  <div class="mech-switch-stack justify-center">
+    <div class="switch-field">
+      <label>Keycap Toggle</label>
+      <label class="mech-key-check">
+        <input type="checkbox" />
+        <span class="key-surface"></span>
+      </label>
+    </div>
 
+    <div class="switch-field">
+      <label>Industrial Slider</label>
+      <label class="mech-slider">
+        <input type="checkbox" />
+        <span class="slider-track">
+          <span class="slider-knob"></span>
+        </span>
+      </label>
+    </div>
 
-/* Al pasar el ratón (ligeramente más claro) */
-.keycap:hover {
-  filter: brightness(1.05);
-}
+    <div class="switch-field">
+      <label>Status LED</label>
+      <label class="mech-led-btn">
+        <input type="checkbox" />
+        <span class="led-body"></span>
+      </label>
+    </div>
+  </div>
+</div>
 
-/* Botón Recessed (hundido/empotrado) */
-.recessed-btn {
-  position: relative;
-  padding: 15px 20px;
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #aaa;
-  background-color: #2a2a2a;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: inset 0 4px 8px rgba(0,0,0,0.6), 0 2px 0 rgba(255,255,255,0.05);
-  transition: all 0.1s ease;
-}
+<div class="mech-demo-container">
+  <div class="section-title">Selects</div>
+  <div class="justify-center grid">
+    <div class="mech-select-stack">
+      <div class="select-field">
+        <label class="label-tech">Layout Profile</label>
+        <div class="select-wrapper key-style">
+          <select>
+            <option>ANSI-US</option>
+            <option>ISO-UK</option>
+            <option>JIS-JP</option>
+          </select>
+        </div>
+      </div>
 
-.recessed-btn:active {
-  background-color: #333;
-  color: #d65a31;
-  box-shadow: inset 0 2px 6px rgba(0,0,0,0.8), 0 1px 0 rgba(255,255,255,0.05);
-  transform: translateY(1px);
-}
+      <div class="select-field">
+        <label class="label-tech">System Mode</label>
+        <div class="select-wrapper display-style">
+          <select>
+            <option>DEFAULT</option>
+            <option>OVERCLOCK</option>
+            <option>SLEEP_MODE</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-/* Al pulsar (recorrido de la tecla) */
-.keycap:active {
-  box-shadow: 
-    0 2px 0 rgba(0,0,0,0.2),         /* El grosor se comprime */
-    0 2px 3px rgba(0,0,0,0.3);        /* La sombra de base disminuye */
-  transform: translateY(6px);         /* La tecla "baja" */
-}`
-			<div
-			class="buttons-container"
-		>
-			<button class="keycap keycap-cream">ESC</button>
+<div class="mech-demo-container">
+  <div class="section-title">Inputs</div>
+  <div class="justify-center grid">
+    <div class="mech-input-stack">
+      <div class="input-field">
+        <label>Keycap Style</label>
+        <input type="text" class="input-keycap" placeholder="SEARCH..." />
+      </div>
 
-			<button class="keycap keycap-grey">ENTER</button>
+      <div class="input-field">
+        <label>Digital Status</label>
+        <div class="display-frame">
+          <input
+            type="text"
+            class="input-display"
+            placeholder="SYSTEM READY_"
+          />
+        </div>
+      </div>
 
-			<button class="keycap keycap-orange">SHIFT</button>
-		</CassetteComponent>
-	</section>
+      <div class="input-field">
+        <label>Industrial Slot</label>
+        <input
+          type="text"
+          class="input-slot"
+          placeholder="ENTER COMMAND..."
+        />
+      </div>
+    </div>
+  </div>
+</div>
 
-	<script src="/src/js/CodeBlock.js"></script>
+<div class="mech-demo-container">
+  <div class="section-title">Cards</div>
+  <div class="cards-container justify-center">
+    <div class="mech-card status-card active">
+      <div class="mech-card-header">System Status</div>
+      <div class="mech-card-title">Main Console</div>
+      <div class="mech-card-body">
+        All systems operational. Network connection stable.
+      </div>
+      <div class="mech-card-footer">
+        <span class="status-indicator">
+          <span class="status-dot online"></span>
+          ONLINE
+        </span>
+      </div>
+    </div>
+
+    <div class="mech-card data-card">
+      <div class="mech-card-header">Data Readout</div>
+      <div class="mech-card-title">Telemetry</div>
+      <div class="data-row">
+        <span class="data-label">Frequency</span>
+        <span class="data-value highlight">98.7 MHz</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Signal</span>
+        <span class="data-value">Strong</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Temp</span>
+        <span class="data-value">24°C</span>
+      </div>
+    </div>
+
+    <div class="mech-card control-card">
+      <div class="mech-card-header">Controls</div>
+      <div class="mech-card-title">Settings</div>
+      <div class="control-row">
+        <span class="control-label">Power</span>
+        <label class="mini-switch">
+          <input type="checkbox" checked />
+          <span class="mini-track"><span class="mini-knob"></span></span>
+        </label>
+      </div>
+      <div class="control-row">
+        <span class="control-label">Audio</span>
+        <label class="mini-switch">
+          <input type="checkbox" />
+          <span class="mini-track"><span class="mini-knob"></span></span>
+        </label>
+      </div>
+      <div class="control-row">
+        <span class="control-label">Radio</span>
+        <label class="mini-switch">
+          <input type="checkbox" checked />
+          <span class="mini-track"><span class="mini-knob"></span></span>
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="mech-demo-container">
+  <div class="section-title">Tables</div>
+  <div class="mech-tables-container">
+    <div class="table-wrapper">
+      <label class="label-tech">System Status Log</label>
+      <table class="mech-table-dark">
+        <thead>
+          <tr>
+            <th>Module</th>
+            <th>Status</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Processor</td>
+            <td><span class="status-led"></span> Active</td>
+            <td>0.85ms</td>
+          </tr>
+          <tr>
+            <td>Backlight</td>
+            <td><span class="status-led orange"></span> Warning</td>
+            <td>40%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-wrapper">
+      <label class="label-tech">Parts Inventory</label>
+      <table class="mech-table-light">
+        <thead>
+          <tr>
+            <th>Part No.</th>
+            <th>Color</th>
+            <th>Stock</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="key-cell">K-75-C</td>
+            <td>Cream</td>
+            <td>120</td>
+          </tr>
+          <tr>
+            <td class="key-cell orange">K-75-O</td>
+            <td>Orange</td>
+            <td>14</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="mech-demo-container">
+  <div class="section-title">Progress</div>
+  <label class="label-tech">Native Progress</label>
+  <progress class="mech-progress-native" value="50" max="100"></progress>
+</div>
+
+    <div class="section-title">Dialog</div>
+    <div class="mech-demo-container">
+      <div class="dialog-demo-container justify-center">
+        <button
+          onclick="document.getElementById('dialog-standard').showModal()"
+          class="keycap keycap-cream">Standard Dialog</button
+        >
+
+        <button
+          onclick="document.getElementById('dialog-error').showModal()"
+          class="trigger-btn error">Error Dialog</button
+        >
+
+        <button
+          onclick="document.getElementById('dialog-terminal').showModal()"
+          class="trigger-btn terminal">Terminal HUD</button
+        >
+
+        <dialog id="dialog-standard" class="mech-dialog standard">
+          <div class="dialog-header">
+            <span class="dot"></span>
+            <span class="header-text">System Configuration</span>
+          </div>
+          <div class="dialog-body">
+            <p>
+              Adjusting the key debounce rate might affect response times.
+              Proceed with the update?
+            </p>
+          </div>
+          <form method="dialog" class="dialog-footer">
+            <button class="btn-flat">ABORT</button>
+            <button class="btn-raised">CONFIRM</button>
+          </form>
+        </dialog>
+
+        <dialog id="dialog-error" class="mech-dialog alert">
+          <div class="alert-stripe">CRITICAL FAILURE</div>
+          <div class="dialog-body">
+            <div class="alert-content">
+              <span class="warning-icon">!</span>
+              <p>Switch interference detected in Block-C. Connection lost.</p>
+            </div>
+          </div>
+          <form method="dialog" class="dialog-footer">
+            <button class="btn-outline">REBOOT SYSTEM</button>
+          </form>
+        </dialog>
+
+        <dialog id="dialog-terminal" class="mech-dialog terminal">
+          <div class="terminal-container">
+            <div class="lines">
+              <p>> INITIALIZING_CORE...</p>
+              <p>> SYNCING_LED_DRIVERS... [DONE]</p>
+              <p class="blink">> READY_FOR_COMMAND_</p>
+            </div>
+            <form method="dialog">
+              <button class="close-x">×</button>
+            </form>
+          </div>
+        </dialog>
+      </div>
+    </div>
+
+    <div class="section-title">Badges</div>
+    <div class="mech-demo-container">
+      <div class="flex justify-center">
+        <div class="mech-badge-panel">
+          <div class="badge-group">
+            <label class="label-tech">System LED</label>
+            <div class="badge-led active">ONLINE</div>
+            <div class="badge-led">OFFLINE</div>
+            <div class="badge-led error">FAILURE</div>
+          </div>
+
+          <div class="badge-group">
+            <label class="label-tech">Markings</label>
+            <span class="badge-silk">REV_04</span>
+            <span class="badge-silk orange">QC_PASSED</span>
+          </div>
+
+          <div class="badge-group">
+            <label class="label-tech">Identification</label>
+            <span class="badge-tag">MODEL: KB-88</span>
+            <span class="badge-tag">S/N: 2026-X1</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Text Area</div>
+    <div class="mech-demo-container">
+      <div class="grid justify-center">
+        <div class="mech-textarea-stack">
+          <div class="textarea-field">
+            <label class="label-tech">System Log / Console</label>
+            <textarea
+              class="area-terminal"
+              placeholder=">> WAITING FOR INPUT..."></textarea>
+          </div>
+
+          <div class="textarea-field">
+            <label class="label-tech">Notes & Schematics</label>
+            <textarea
+              class="area-paper"
+              placeholder="Enter technical notes here..."></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">Radio Buttons</div>
+    <div class="mech-demo-container">
+      <div class="flex justify-center">
+        <div class="mech-radio-stack">
+          <div class="radio-group">
+            <label class="label-tech">Output Mode</label>
+            <div class="radio-pads">
+              <label class="pad-item">
+                <input type="radio" name="mode" checked />
+                <span class="pad-surface">AUX</span>
+              </label>
+              <label class="pad-item">
+                <input type="radio" name="mode" />
+                <span class="pad-surface">TAPE</span>
+              </label>
+              <label class="pad-item">
+                <input type="radio" name="mode" />
+                <span class="pad-surface">PHONO</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="radio-group">
+            <label class="label-tech">System Sync</label>
+            <div class="radio-leds">
+              <label class="led-item">
+                <input type="radio" name="sync" checked />
+                <span class="led-indicator"></span>
+                <span class="led-text">INTERNAL</span>
+              </label>
+              <label class="led-item">
+                <input type="radio" name="sync" />
+                <span class="led-indicator"></span>
+                <span class="led-text">EXTERNAL</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/src/js/CodeBlock.js"></script>
 </Layout>

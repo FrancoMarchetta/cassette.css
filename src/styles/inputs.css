@@ -1,0 +1,84 @@
+.mech-input-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  width: 300px;
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-field label {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: bold;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- 1. Keycap Style --- */
+.input-keycap {
+  background-color: #f1ebd8;
+  color: #333;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 15px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  outline: none;
+  box-shadow: 0 6px 0 #d8d0ba, 0 8px 10px rgba(0,0,0,0.15);
+  transition: all 0.1s ease;
+}
+
+.input-keycap:focus {
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 #d8d0ba, 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* --- 2. Terminal Display --- */
+.display-frame {
+  background-color: #1a1a1a;
+  padding: 4px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 0px #444;
+}
+
+.input-display {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #2a2a2a;
+  color: #d65a31;
+  border: 1px solid #333;
+  padding: 10px;
+  font-family: 'Courier New', monospace;
+  outline: none;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.input-display:focus {
+  text-shadow: 0 0 5px rgba(214, 90, 49, 0.6);
+  border-color: #d65a31;
+}
+
+/* --- 3. Industrial Slot --- */
+.input-slot {
+  background-color: #333;
+  color: #f1ebd8;
+  border: none;
+  border-left: 5px solid #d65a31;
+  padding: 12px;
+  outline: none;
+  font-family: 'Courier New', monospace;
+  box-shadow: inset 4px 0 10px rgba(0,0,0,0.3);
+  transition: all 0.2s;
+}
+
+.input-slot:focus {
+  background-color: #3d3d3d;
+  border-left-width: 10px;
+}

@@ -1,0 +1,84 @@
+.mech-select-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 20px;
+  width: 280px;
+}
+
+.select-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label-tech {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: bold;
+  color: #888;
+  text-transform: uppercase;
+}
+
+/* --- Base del Wrapper --- */
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* El select real ocultando la estética de OS */
+.select-wrapper select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  padding: 12px 35px 12px 15px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Flecha personalizada con CSS (Triángulo) */
+.select-wrapper::after {
+  content: "";
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #d65a31; /* Naranja del teclado */
+  pointer-events: none;
+}
+
+/* --- 1. Keycap Style (Relieve) --- */
+.key-style select {
+  background-color: #f1ebd8;
+  color: #333;
+  border-radius: 6px;
+  box-shadow: 0 5px 0 #d8d0ba, 0 5px 10px rgba(0,0,0,0.1);
+  transition: all 0.1s;
+}
+
+.key-style:active select {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #d8d0ba, 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* --- 2. Display Style (Hundido) --- */
+.display-style select {
+  background-color: #222;
+  color: #f1ebd8;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.8);
+}
+
+.display-style select option {
+  background-color: #222;
+  color: #f1ebd8;
+}
