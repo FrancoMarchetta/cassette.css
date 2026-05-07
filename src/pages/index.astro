@@ -39,7 +39,7 @@ import "../styles/component-group.css";
   gap: 20px;
 }
 
-/* Estilo base para todas las teclas (el "relieve" analógico) */
+/* Estilo base para todas las teclas */
 .keycap {
   position: relative;
   display: inline-block;
@@ -49,24 +49,21 @@ import "../styles/component-group.css";
   text-transform: uppercase;
   letter-spacing: 0.1em;
   border: none;
-  border-radius: 12px; /* Bordes muy redondeados */
+  border-radius: 12px; 
   cursor: pointer;
   transition: all 0.1s ease;
   
-  /* Efecto de sombra 3D (el cuerpo de la tecla) */
   box-shadow: 
-    0 8px 0 rgba(0,0,0,0.2),         /* Grosor principal de la tecla */
-    0 10px 15px rgba(0,0,0,0.3),      /* Sombra proyectada en la base */
-    inset 0 1px 1px rgba(255,255,255,0.3); /* Brillo superior interno */
+    0 8px 0 rgba(0,0,0,0.2),         
+    0 10px 15px rgba(0,0,0,0.3),      
+    inset 0 1px 1px rgba(255,255,255,0.3); 
 }
 
-/* Efecto de superficie cóncava/esférica (el "analógico") */
 .keycap::before {
   content: "";
   position: absolute;
   top: 5px; right: 5px; bottom: 5px; left: 5px;
   border-radius: 9px;
-  /* Degradado radial sutil para simular la curvatura */
   background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.1) 100%);
   z-index: -1;
 }
@@ -76,7 +73,7 @@ import "../styles/component-group.css";
   background-color: #f1ebd8;
   color: #555;
   box-shadow: 
-    0 8px 0 #d8d0ba,                 /* Lado crema más oscuro */
+    0 8px 0 #d8d0ba,                 
     0 10px 15px rgba(0,0,0,0.2), 
     inset 0 1px 1px rgba(255,255,255,0.6);
 }
@@ -86,7 +83,7 @@ import "../styles/component-group.css";
   background-color: #4a4a4a;
   color: #fff;
   box-shadow: 
-    0 8px 0 #333,                    /* Lado gris más oscuro */
+    0 8px 0 #333,                    
     0 10px 15px rgba(0,0,0,0.3), 
     inset 0 1px 1px rgba(255,255,255,0.1);
 }
@@ -96,18 +93,16 @@ import "../styles/component-group.css";
   background-color: #d65a31;
   color: #fff;
   box-shadow: 
-    0 8px 0 #a94125,                 /* Lado naranja más oscuro */
+    0 8px 0 #a94125,                 
     0 10px 15px rgba(0,0,0,0.3), 
     inset 0 1px 1px rgba(255,255,255,0.2);
 }
 
 
-/* Al pasar el ratón (ligeramente más claro) */
 .keycap:hover {
   filter: brightness(1.05);
 }
 
-/* Botón Recessed (hundido/empotrado) */
 .recessed-btn {
   position: relative;
   padding: 15px 20px;
@@ -131,12 +126,11 @@ import "../styles/component-group.css";
   transform: translateY(1px);
 }
 
-/* Al pulsar (recorrido de la tecla) */
 .keycap:active {
   box-shadow: 
-    0 2px 0 rgba(0,0,0,0.2),         /* El grosor se comprime */
-    0 2px 3px rgba(0,0,0,0.3);        /* La sombra de base disminuye */
-  transform: translateY(6px);         /* La tecla "baja" */
+    0 2px 0 rgba(0,0,0,0.2),         
+    0 2px 3px rgba(0,0,0,0.3);        
+  transform: translateY(6px);         
 }
 
 
@@ -1158,10 +1152,10 @@ import "../styles/component-group.css";
 }
       `
     >
-    <div>
-      <label class="label-tech">Native Progress</label>
-      <progress class="mech-progress-native" value="50" max="100"></progress>
-    </div>
+      <div>
+        <label class="label-tech">Native Progress</label>
+        <progress class="mech-progress-native" value="50" max="100"></progress>
+      </div>
     </CassetteComponent>
 
     <CassetteComponent
@@ -1859,5 +1853,4 @@ import "../styles/component-group.css";
       </div>
     </CassetteComponent>
   </div>
-
 </Layout>
