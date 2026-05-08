@@ -1861,5 +1861,68 @@ import CodeBlockButton from "../components/CodeBlockButton.astro";
     </CassetteComponent>
   </div>
 
+  <style is:global>
+    @media (max-width: 700px) {
+      .page-content {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+
+      .buttons-container {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .mech-switch-stack {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .switch-field {
+        gap: 20px;
+      }
+
+      .mech-select-stack,
+      .mech-input-stack,
+      .mech-textarea-stack {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .dialog-demo-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      .cards-container {
+        justify-content: center;
+      }
+
+      .mech-table-dark,
+      .mech-table-light {
+        font-size: 12px;
+      }
+
+      .mech-badge-panel {
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .badge-group {
+        flex-wrap: wrap;
+      }
+
+      .radio-pads {
+        flex-wrap: wrap;
+      }
+
+      .component-group-title {
+        font-size: 18px;
+      }
+    }
+  </style>
+
   <script src="/src/js/CodeBlock.js"></script>
 </Layout>
